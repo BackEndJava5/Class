@@ -1,20 +1,24 @@
 package com.ssamz.biz.user;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.ssamz.biz.common.JDBCUtil;
-
-public class UpdateUserTest2 {
+public class InsertUserTestVO {
 
 	public static void main(String[] args) {
 		// 1. UserDAO 객체를 생성한다.
 		UserDAO dao = new UserDAO();
-		
-		// 2. 회원 정보를 수정한다. name ,role, id
-		dao.updateUser("수정", "USER", "ssamz");
-		
+
+		// 2. 회원 정보를 등록한다.
+		UserVO vo = new UserVO();
+		vo.setName("쌤즈");
+		vo.setRole("USER");
+		vo.setId("ssamz4");
+		vo.setPassword("ssamz123");
+		dao.insertUserVO(vo);
+
 		// 3. 목록을 조회한다.
 		dao.getUserList();
 	}

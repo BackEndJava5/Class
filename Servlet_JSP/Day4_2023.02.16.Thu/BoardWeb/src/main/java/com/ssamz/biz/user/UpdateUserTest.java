@@ -12,33 +12,32 @@ public class UpdateUserTest {
 		// JDBC관련변수
 		Connection conn = null;
 		PreparedStatement stmt = null;
-	
-		try
-		{
+
+		try {
 			conn = JDBCUtil.getConnection();
-	
+
 			// JDBC 3단계: Statement 생성
 			String sql = "update users set name=?, role=? where id=?";
-	
+
 			stmt = conn.prepareStatement(sql);
 			if (stmt != null) {
 				System.out.println("Statement 객체:" + stmt.toString());
 			}
-	
+
 			// JDBC 4단계: SQL 전송
 			// ? 값 설정
 			stmt.setString(1, "수정");
 			stmt.setString(2, "USER");
 			stmt.setString(3, "ssamz3");
-	
+
 			// SQL 전송
 			int count = stmt.executeUpdate();
 			System.out.println(count + "건 데이터 처리 성공 !");
-	
-		}catch(	SQLException e)	{
+
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
-	
+		} finally {
+
 			// JDBC 5단계: 연결 해제
 			JDBCUtil.close(null, stmt, conn);
 		}

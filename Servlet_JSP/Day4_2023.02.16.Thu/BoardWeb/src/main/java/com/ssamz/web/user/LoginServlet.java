@@ -12,29 +12,30 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login.do")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-    public LoginServlet() {
-        System.out.println("===> LoginServlet 생성");
-    }    
-    
-	public void init() throws ServletException{
+
+	public LoginServlet() {
+		System.out.println("===> LoginServlet 생성");
+	}
+
+	public void init() throws ServletException {
 		System.out.println("===> init() 호출");
 	}
-	
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("===> service 호출");
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		System.out.println("===> doGet 호출");
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		System.out.println("===> doPost 호출");
 	}
-	
+
 	public void destroy() {
 		System.out.println("===> destroy() 호출");
 	}
