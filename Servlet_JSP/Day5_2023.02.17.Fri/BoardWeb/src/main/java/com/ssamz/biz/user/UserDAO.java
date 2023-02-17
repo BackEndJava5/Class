@@ -10,6 +10,7 @@ import java.util.List;
 import com.ssamz.biz.common.JDBCUtil;
 
 public class UserDAO {
+
 	// JDBC관련변수
 	Connection conn = null;
 	PreparedStatement stmt = null;
@@ -19,8 +20,38 @@ public class UserDAO {
 	private String USER_LIST = "select * from users";
 	private String USER_INSERT = "insert into users values(?, ?, ?, ?)";
 	private String USER_UPDATE = "update users set name = ?, role = ? where id = ?";
+	private String USER_DELETE = "delete users where id = ?";
+	private String USER_GET = "select * from users where id = ?";
 
+	/* 
+	 * 6장 서블릿 핵심 객체
+	 * 6.1.3 로그인 인증 처리
+	 * DAO 클래스 수정 - page 170
+	 */
+	
 	// USERS 테이블 관련 CRUD 메소드
+	// 회원상세조회
+	public UserVO getUser(UserVO vo) {
+		UserVO user = null;
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(USER_GET);
+			stmt.setString(1, vo.getId());
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				user = new UserVO();
+				user.setId(rs.getString("ID"));
+				user.setPassword(rs.getString("PASSWORD"));
+				user.setName(rs.getString("NAME"));
+				user.setRole(rs.getString("ROLE"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		return user;
+	}
 
 	// 회원 목록 조회(DAO)
 	public void getUserList() {
