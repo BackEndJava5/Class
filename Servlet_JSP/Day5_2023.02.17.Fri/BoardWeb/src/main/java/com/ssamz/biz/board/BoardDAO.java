@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ssamz.biz.common.JDBCUtil;
-import com.ssamz.biz.user.UserVO;
 
 /*
  * 7.1.3 DAO 클래스 - page 196
