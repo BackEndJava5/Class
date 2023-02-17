@@ -1,6 +1,8 @@
 package com.ssamz.web.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -47,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 		/*
 		 * 6장 서블릿 핵심 객체 6.1.3 로그인 인증 처리 서블릿 수정 - page 171
 		 */
-		
+
 		// 1. 사용자 입력 정보 추출
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
@@ -55,11 +57,11 @@ public class LoginServlet extends HttpServlet {
 		// 2. DB 연동 처리
 		UserVO vo = new UserVO();
 		vo.setId(id);
-		
+
 		UserDAO dao = new UserDAO();
 		UserVO user = dao.getUser(vo);
-		
-		// 3. 응답 화면 구성
+
+		// 3. 응답 화면 구성(콘솔 로그 출력)
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
 				System.out.println(user.getName() + "님 로그인 환영<br>");
@@ -71,6 +73,26 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			System.out.println("아이디 오류입니다.<br>");
 			System.out.println("<a href='/'>다시 로그인</a>");
+		}
+
+		// 응답 메시지에 대한 인코딩 설정
+		response.setContentType("text/html; charset=UTF-8");
+
+		// HTTP 응답 프로토콜 message-body와 연결된 출력 스트림 획득
+		PrintWriter out = response.getWriter();
+
+		// 메시지 출력(브라우저에 출력)
+		if (user != null) {
+			if (user.getPassword().equals(password)) {
+				out.println(user.getName() + "님 로그인 환영<br>");
+				out.println("<a href='/getBoardList.do'>글 목록 이동</a>");
+			} else {
+				out.println("비밀번호 오류입니다.<br>");
+				out.println("<a href='/'>다시 로그인</a>");
+			}
+		} else {
+			out.println("아이디 오류입니다.<br>");
+			out.println("<a href='/'>다시 로그인</a>");
 		}
 
 	}
