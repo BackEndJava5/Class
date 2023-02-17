@@ -3,6 +3,7 @@ package com.ssamz.web.user;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -17,9 +18,18 @@ import com.ssamz.biz.user.UserVO;
 @WebServlet("/login.do")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private String encoding;
 
 	public LoginServlet() {
 		System.out.println("===> LoginServlet 생성");
+	}
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		// 인코딩 처리
+		super.init(config);
+		encoding = config.getInitParameter("boardEncoding");
+		System.out.println("---> Encoding: " + encoding);
 	}
 
 	public void init() throws ServletException {
@@ -47,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("Accept-Language : " + request.getHeader("accept-language"));
 
 		/*
-		 * 6장 서블릿 핵심 객체 6.1.3 로그인 인증 처리 서블릿 수정 - page 171
+		 * 6장 서블릿 핵심 객체 6.1.3 로그인 인증 처리 - page 171
 		 */
 
 		// 1. 사용자 입력 정보 추출
@@ -94,7 +104,6 @@ public class LoginServlet extends HttpServlet {
 			out.println("아이디 오류입니다.<br>");
 			out.println("<a href='/'>다시 로그인</a>");
 		}
-
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -104,7 +113,31 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("===> doPost 호출");
+		// 1. 사용자 입력 정보 추출
+		// 인코딩 처리
+//		ServletConfig config = getServletConfig();
+//		encoding = config.getInitParameter("boardEncoding");
+//		System.out.println("---> Encoding: " + encoding);
+		
+		
+		request.setCharacterEncoding(encoding);
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String role = request.getParameter("role");
+
+		// 2. DB 연동 처리
+		UserVO vo = new UserVO();
+		vo.setId(id);
+		vo.setPassword(password);
+		vo.setName(name);
+		vo.setRole(role);
+
+		UserDAO dao = new UserDAO();
+		dao.insertUserVO(vo);
+
+		// 3. 화면 이동
+		response.sendRedirect("login.html");
 	}
 
 	public void destroy() {

@@ -7,13 +7,15 @@
 	<welcome-file-list>
 		<welcome-file>login.html</welcome-file>
 	</welcome-file-list>
-	<servlet>
-		<description></description>
-		<servlet-name>insertUser</servlet-name>
-		<servlet-class>com.ssamz.web.user.InsertUserServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>insertUser</servlet-name>
-		<url-pattern>/insertUser.do</url-pattern>
-	</servlet-mapping>
+
+	<context-param>
+		<param-name>boardEncoding</param-name>
+		<param-value>UTF-8</param-value>
+	</context-param>
+
+	<!-- <servlet> <description></description> <servlet-name>insertUser</servlet-name> 
+		<servlet-class>com.ssamz.web.user.InsertUserServlet</servlet-class> <init-param> 
+		<param-name>boardEncoding</param-name> <param-value>UTF-8</param-value> </init-param> 
+		</servlet> <servlet-mapping> <servlet-name>insertUser</servlet-name> <url-pattern>/insertUser.do</url-pattern> 
+		</servlet-mapping> -->
 </web-app>
