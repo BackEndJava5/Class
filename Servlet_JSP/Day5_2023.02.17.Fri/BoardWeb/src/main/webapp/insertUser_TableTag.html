@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<h1>회원가입</h1>
+		<form action="insertUser.do" method="post">
+			<table border="1 cellpadding=" 0" cellspacing="0">
+
+				<tr>
+					<td bgcolor="orange" width="90">아이디</td>
+					<td><input type="text" size="12" /></td>
+				</tr>
+
+				<tr>
+					<td bgcolor="orange">비밀번호</td>
+					<td><input type="password" size="12" /></td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">이름</td>
+					<td><input type="text" size="30" /></td>
+				</tr>
+
+				<tr>
+					<td bgcolor="orange">권한</td>
+					<td><input type="radio" name="role" checked />USER <input
+						type="radio" name="role" />ADMIN</td>
+				</tr>
+
+				<tr>
+					<td bgcolor="orange">자기 소개</td>
+					<td><textarea rows="5" cols="30">여기에 입력하세요.</textarea></td>
+				</tr>
+
+				<tr>
+					<td bgcolor="orange">언어 경험</td>
+					<td><input type="checkbox" checked>C <input
+						type="checkbox">Python <input type="checkbox" checked>Java
+						<input type="checkbox">Go <input type="checkbox">Javascript
+
+					</td>
+				</tr>
+
+				<tr>
+					<td bgcolor="orange">나이</td>
+					<td><select>
+							<option>--선택--
+							<option>10대
+							<option>20대
+							<option>30대
+							<option>40대
+							<option>50대
+							<option>60대 이상
+					</select></td>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td colspan="2" align="center"><input type="button"
+						value="보통 버튼" /> <input type="submit" value="회원가입" /> <input
+						type="reset" value="취소" />
+					<td>
+				</tr>
+
+			</table>
+		</form>
+	</center>
+</body>
+</html>
