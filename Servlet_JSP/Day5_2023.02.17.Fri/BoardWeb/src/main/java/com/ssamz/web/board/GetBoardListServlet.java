@@ -53,7 +53,7 @@ public class GetBoardListServlet extends HttpServlet {
 		for (BoardVO board : boardList) {
 			out.println("<tr>");
 			out.println("<td>" + board.getSeq() + "</td>");
-			out.println("<td align='left'><a ref='#'>" + board.getTitle() + "</a></td>");
+			out.println("<td align='left'><a href='#'>" + board.getTitle() + "</a></td>");
 			out.println("<td>" + board.getWriter() + "</td>");
 			out.println("<td>" + board.getRegDate() + "</td>");
 			out.println("<td>" + board.getCnt() + "</td>");
@@ -61,7 +61,7 @@ public class GetBoardListServlet extends HttpServlet {
 
 		out.println("</table>");
 		out.println("<br>");
-		out.println("<a ref='insertBoard.html'>새글 등록</a>");
+		out.println("<a href='insertBoard.html'>새글 등록</a>");
 		out.println("</center>");
 		out.println("</body>");
 		out.println("</html>");
