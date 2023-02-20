@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,22 @@ public class GetBoardListServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// 0. 상태 정보 체크( page 229 )
+		Cookie[] cookieList = request.getCookies();
+		if (cookieList == null) {
+			response.sendRedirect("/login.html");
+		} else {
+			String userId = null;
+
+			for (Cookie cookie : cookieList) {
+				if (cookie.getName().equals("userId")) {
+					userId = cookie.getValue();
+				}
+			}
+			if (userId == null) {
+				response.sendRedirect("/login.html");
+			}
+		}
 		// 1. DB 연동 처리
 		BoardVO vo = new BoardVO();
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,22 @@ public class GetBoardServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// 0. 상태 정보 체크( page 231 )
+		Cookie[] cookieList = request.getCookies();
+		if (cookieList == null) {
+			response.sendRedirect("/login.html");
+		} else {
+			String userId = null;
+
+			for (Cookie cookie : cookieList) {
+				if (cookie.getName().equals("userId")) {
+					userId = cookie.getValue();
+				}
+			}
+			if (userId == null) {
+				response.sendRedirect("/login.html");
+			}
+		}
 		// 1. 사용자 입력 정보 추출
 		String seq = request.getParameter("seq");
 
@@ -43,7 +60,7 @@ public class GetBoardServlet extends HttpServlet {
 		out.println("<h1>글 상세</h1>");
 		out.println("<a href='logout.do'>Log-out</a></h3>");
 		out.println("<tr>");
-		
+
 		out.println("<form action='updateBoard.do' method='post'>");
 		out.println("<input name='seq' type='hidden' value='" + board.getSeq() + "'/>");
 		out.println("<table border='1' cellpadding='0' cellspacing='0'>");
@@ -83,8 +100,8 @@ public class GetBoardServlet extends HttpServlet {
 		out.println("</table>");
 		out.println("</form>");
 		out.println("<hr>");
-		out.println("<a href='insertBoard.html'>글등록</a>&nbsp;&nbsp;&nbsp;");		
-		out.println("<a href='deleteBoard.do?seq=" + board.getSeq() + "'>글삭제</a>&nbsp;&nbsp;&nbsp;");		
+		out.println("<a href='insertBoard.html'>글등록</a>&nbsp;&nbsp;&nbsp;");
+		out.println("<a href='deleteBoard.do?seq=" + board.getSeq() + "'>글삭제</a>&nbsp;&nbsp;&nbsp;");
 		out.println("<a href='getBoardList.do'>글목록</a>");
 		out.println("</center>");
 		out.println("</body>");

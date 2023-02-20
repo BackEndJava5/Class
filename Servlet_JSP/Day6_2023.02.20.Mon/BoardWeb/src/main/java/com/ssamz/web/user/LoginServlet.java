@@ -6,9 +6,8 @@ import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -95,11 +94,18 @@ public class LoginServlet extends HttpServlet {
 		// 메시지 출력(브라우저에 출력)
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
+
+				/********** 쿠키 이용 **************/
+				// 상태 정보를 쿠키에 저장하여 전송한다.
+				Cookie userId = new Cookie("userId", user.getId());
+				response.addCookie(userId);
+
 				// 글 목록 화면으로 포워딩한다.
 				RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
 				dispatcher.forward(request, response);
-				out.println(user.getName() + "님 로그인 환영<br>");
-				out.println("<a href='/getBoardList.do'>글 목록 이동</a>");
+
+//				out.println(user.getName() + "님 로그인 환영<br>");
+//				out.println("<a href='/getBoardList.do'>글 목록 이동</a>");
 			} else {
 				out.println("비밀번호 오류입니다.<br>");
 				out.println("<a href='/'>다시 로그인</a>");
