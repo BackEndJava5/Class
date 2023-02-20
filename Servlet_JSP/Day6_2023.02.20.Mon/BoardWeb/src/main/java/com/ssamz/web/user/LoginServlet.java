@@ -75,12 +75,8 @@ public class LoginServlet extends HttpServlet {
 		// 3. 응답 화면 구성(콘솔 로그 출력)
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
-//				System.out.println(user.getName() + "님 로그인 환영<br>");
-//				System.out.println("<a href='/getBoardList.do'>글 목록 이동</a>");
-				
-				// 글 목룍 화면으로 포워딩한다.
-				RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
-				dispatcher.forward(request, response);
+				System.out.println(user.getName() + "님 로그인 환영<br>");
+				System.out.println("<a href='/getBoardList.do'>글 목록 이동</a>");
 			} else {
 				System.out.println("비밀번호 오류입니다.<br>");
 				System.out.println("<a href='/'>다시 로그인</a>");
@@ -99,6 +95,9 @@ public class LoginServlet extends HttpServlet {
 		// 메시지 출력(브라우저에 출력)
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
+				// 글 목록 화면으로 포워딩한다.
+				RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
+				dispatcher.forward(request, response);
 				out.println(user.getName() + "님 로그인 환영<br>");
 				out.println("<a href='/getBoardList.do'>글 목록 이동</a>");
 			} else {
@@ -123,8 +122,7 @@ public class LoginServlet extends HttpServlet {
 //		ServletConfig config = getServletConfig();
 //		encoding = config.getInitParameter("boardEncoding");
 //		System.out.println("---> Encoding: " + encoding);
-		
-		
+
 		request.setCharacterEncoding(encoding);
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");

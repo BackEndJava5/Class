@@ -16,7 +16,6 @@ import com.ssamz.biz.user.UserDAO;
 import com.ssamz.biz.user.UserVO;
 
 @WebServlet("/insertBoard.do")
-
 public class InsertBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String encoding;
@@ -43,9 +42,9 @@ public class InsertBoardServlet extends HttpServlet {
 		BoardDAO dao = new BoardDAO();
 		dao.insertBoard(vo);
 
-		// 3. 화면 이동
+		// 3. 화면 이동( 리스트화면으로 포워딩되어야 함 )
 		//response.sendRedirect("getBoardList.do");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/getBoardList.do");
 		dispatcher.forward(request, response);
 	}
 }
