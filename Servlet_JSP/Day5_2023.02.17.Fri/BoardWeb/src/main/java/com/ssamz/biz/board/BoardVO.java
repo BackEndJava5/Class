@@ -2,22 +2,6 @@ package com.ssamz.biz.board;
 
 import java.sql.Date;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Getter
-//@Setter
-//@ToString
-
-@Data
-
 /*
  * 7.1.2 VO 클래스 - page 188
  */
