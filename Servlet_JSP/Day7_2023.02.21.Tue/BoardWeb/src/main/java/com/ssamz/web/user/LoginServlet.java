@@ -104,7 +104,11 @@ public class LoginServlet extends HttpServlet {
 				/********** 세션 생성 및 상태 저장 ( page 239 ) **************/
 				HttpSession session = request.getSession();
 				session.setAttribute("userId", user.getId());
-
+				
+				/******  8.2.2 세션 응용 : 사용자 이름 출력 **********/
+				session.setAttribute("userName", user.getName());
+				session.setAttribute("userRole", user.getRole());
+				
 				// 글 목록 화면으로 포워딩한다.
 				RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
 				dispatcher.forward(request, response);

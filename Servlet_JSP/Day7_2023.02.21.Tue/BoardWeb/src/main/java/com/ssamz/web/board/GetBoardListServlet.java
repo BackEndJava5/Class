@@ -46,7 +46,7 @@ public class GetBoardListServlet extends HttpServlet {
 
 		/********** 8.1.3 세션 (page 234) *************/
 		// 0. 상태 정보 체크
-	    /*
+        /*
 		HttpSession session = request.getSession();
 		String sessionId = session.getId();
 		System.out.println("GetBoardListServlet service() sessionId : " + sessionId);
@@ -80,7 +80,12 @@ public class GetBoardListServlet extends HttpServlet {
 		out.println("<body>");
 		out.println("<center>");
 		out.println("<h1>게시글 목록</h1>");
-		out.println("<h3>테스터님 로그인 환영합니다.......");
+		//out.println("<h3>테스터님 로그인 환영합니다.......");
+		
+		/******  8.2.2 세션 응용 : 사용자 이름 출력 **********/
+		String userName = (String) session.getAttribute("userName");
+		out.println("<h3>" + userName + "님 로그인 환영합니다.....");
+		
 		out.println("<a href='logout.do'>Log-out</a></h3>");
 
 		out.println("<table border='1' cellpadding='0' cellspacing='0' width='700'>");
