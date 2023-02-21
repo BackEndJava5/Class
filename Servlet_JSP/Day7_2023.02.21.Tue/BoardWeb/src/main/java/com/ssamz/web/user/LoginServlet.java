@@ -106,6 +106,9 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("userId", user.getId());
 				
 				/******  8.2.2 세션 응용 : 사용자 이름 출력 **********/
+				// 세션 유효 시간 변경
+				session.setMaxInactiveInterval(10);
+				session.setAttribute("userId", user.getId());
 				session.setAttribute("userName", user.getName());
 				session.setAttribute("userRole", user.getRole());
 				
