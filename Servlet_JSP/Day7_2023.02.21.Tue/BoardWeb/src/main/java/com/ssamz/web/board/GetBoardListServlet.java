@@ -87,6 +87,25 @@ public class GetBoardListServlet extends HttpServlet {
 		out.println("<h3>" + userName + "님 로그인 환영합니다.....");
 		
 		out.println("<a href='logout.do'>Log-out</a></h3>");
+		
+		/******  8.2.3 검색 기능 구현 (page 249) **********/
+		out.println("<!--검색 시작 -->");
+		out.println("<form action='getBoardList.do' method='post'>");
+		out.println("<table border='1' cellpadding='0' cellspacing='0' width='700'>");
+		out.println("<tr>");
+		out.println("<td align='right'>");
+		out.println("<select name='searchCondition'>");
+		out.println("<option value='TITLE'>제목");
+		out.println("<option value='CONTENT'>내용");
+		out.println("<input name='searchKeyword' type='text' />");
+		out.println("</select>");
+		out.println("<input type='submit' value='검색'/>");
+		out.println("</td>");
+		out.println("</tr>");
+		out.println("</table>");
+		out.println("</form>");
+		out.println("<!--검색 종료 -->");
+
 
 		out.println("<table border='1' cellpadding='0' cellspacing='0' width='700'>");
 		out.println("<tr>");
