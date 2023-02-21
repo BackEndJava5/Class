@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
+//import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -58,16 +59,34 @@ public class GetBoardListServlet extends HttpServlet {
 		}
 		*/
 		
-		
 		// 0. 상태 정보 체크( page 238 )
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
 		if (userId == null) {
 			response.sendRedirect("/");
 		}
+		
+		// 1. 사용자 입력정보 추출 : 검색키워드에 한글이 입력 될 수 있으므로 인코딩을 한다.
+		ServletContext context = request.getServletContext();
+		String encoding = context.getInitParameter("boardEncoding"); 
+		request.setCharacterEncoding(encoding);
+		String searchCondition = request.getParameter("searchCondition");
+		String searchKeyword = request.getParameter("searchKeyword");
+		
+		// Null Check
+		if(searchCondition == null) searchCondition = "TITLE"; 
+		if(searchKeyword == null) searchKeyword = "";
+		
+		// 세션에 검색 관련 정보를 저장한다.
+		session.setAttribute("condition", searchCondition);
+		session.setAttribute("keyword", searchKeyword);
+
 
 		// 1. DB 연동 처리
 		BoardVO vo = new BoardVO();
+		vo.setSearchCondition(searchCondition);
+		vo.setSearchKeyword(searchKeyword);
+		
 		BoardDAO boardDAO = new BoardDAO();
 		List<BoardVO> boardList = boardDAO.getBoardList(vo);
 
@@ -95,17 +114,37 @@ public class GetBoardListServlet extends HttpServlet {
 		out.println("<tr>");
 		out.println("<td align='right'>");
 		out.println("<select name='searchCondition'>");
-		out.println("<option value='TITLE'>제목");
-		out.println("<option value='CONTENT'>내용");
-		out.println("<input name='searchKeyword' type='text' />");
+		
+		//out.println("<option value='TITLE'>제목");
+		//out.println("<option value='CONTENT'>내용");
+		//out.println("<input name='searchKeyword' type='text' />");
+		
+		String condition=(String) session.getAttribute("condition");
+		
+		if(condition.equals("TITLE")) {
+			out.println("<option value='TITLE' selected>제목");
+		} else {
+			out.println("<option value='TITLE'>제목");
+		}
+		
+		if(condition.equals("CONTENT")) {
+			out.println("<option value='CONTENT' selected>내용");
+		} else {
+			out.println("<option value='CONTENT'>내용");
+		}	
+
 		out.println("</select>");
+		
+		out.println("<input name='searchKeyword' type='text' value='" +
+				session.getAttribute("keyword") + "'/>");
+
+		
 		out.println("<input type='submit' value='검색'/>");
 		out.println("</td>");
 		out.println("</tr>");
 		out.println("</table>");
 		out.println("</form>");
 		out.println("<!--검색 종료 -->");
-
 
 		out.println("<table border='1' cellpadding='0' cellspacing='0' width='700'>");
 		out.println("<tr>");
