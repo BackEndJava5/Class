@@ -44,14 +44,26 @@ public class GetBoardListServlet extends HttpServlet {
 			}
 		}*/
 
-		/********** 8.1.3 세션 *************/
-		// 0. 상태 정보 체크( page 234 )		
+		/********** 8.1.3 세션 (page 234) *************/
+		// 0. 상태 정보 체크
+	    /*
 		HttpSession session = request.getSession();
 		String sessionId = session.getId();
+		System.out.println("GetBoardListServlet service() sessionId : " + sessionId);
+			
 		if (session.isNew()) {
 			System.out.println("===> 처음 생성된 세션 : " + sessionId);
 		} else {
 			System.out.println("===> 재사용중인 세션 : " + sessionId);
+		}
+		*/
+		
+		
+		// 0. 상태 정보 체크( page 238 )
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		if (userId == null) {
+			response.sendRedirect("/");
 		}
 
 		// 1. DB 연동 처리
