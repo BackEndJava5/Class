@@ -17,4 +17,7 @@
     <filter-name>TimeCheckFilter</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping> -->
+  <!--   <listener>
+    <listener-class>com.ssamz.web.common.BoardWebContextListener</listener-class>
+  </listener> -->
 </web-app>
