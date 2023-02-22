@@ -5,9 +5,9 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
+//import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-//import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -100,20 +100,20 @@ public class LoginServlet extends HttpServlet {
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
 
-				/********** 쿠키 이용 ( page 227 ) **************/
-				// 상태 정보를 쿠키에 저장하여 전송한다.
-				// Cookie userId = new Cookie("userId", user.getId());
-				// response.addCookie(userId);
-
 				/********** 세션 **************/
 				// 상태 정보를 세션에 저장하여 전송한다. ( page 239 )
 				// 사용자 이름 출력 ( page 243 )
 				// 세션 유효 시간 변경 ( page 246 )
 				HttpSession session = request.getSession();
-				session.setMaxInactiveInterval(10);
-				session.setAttribute("userId", user.getId());
-				session.setAttribute("userName", user.getName());
-				session.setAttribute("userRole", user.getRole());
+				//session.setMaxInactiveInterval(10);
+				//session.setAttribute("userId", user.getId());
+				//session.setAttribute("userName", user.getName());
+				//session.setAttribute("userRole", user.getRole());
+				session.setAttribute("user",user);
+				
+				/*** 10.2.2 리스너 응용 ( page 302 )****/
+				RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
+				dispatcher.forward(request, response);
 
 				/*** 9.1.2 HttpServletRequest와 포워딩 ( page 261 )****/
 				// 글 목록 화면으로 포워딩한다.
@@ -135,9 +135,9 @@ public class LoginServlet extends HttpServlet {
 				
 				/*** 9.1.4  ServletContext와 정보공유 ( page 268 )****/
 				// 글 목록 화면에서 사용할 데이터를 ServletContext에 등록한다.
-				ServletContext context = getServletContext();
-				context.setAttribute("welcomeMessage", "님 환영합니다.");
-				response.sendRedirect("getBoardList.do");
+				//ServletContext context = getServletContext();
+				//context.setAttribute("welcomeMessage", "님 환영합니다.");
+				//response.sendRedirect("getBoardList.do");
 				
 			} else {
 				out.println("비밀번호 오류입니다.<br>");
@@ -156,13 +156,14 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 1. 사용자 입력 정보 추출
+		
 		// 인코딩 처리
 //		ServletConfig config = getServletConfig();
 //		encoding = config.getInitParameter("boardEncoding");
 //		System.out.println("---> Encoding: " + encoding);
-
-		request.setCharacterEncoding(encoding);
+//		request.setCharacterEncoding(encoding);
+		
+		// 1. 사용자 입력 정보 추출
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");

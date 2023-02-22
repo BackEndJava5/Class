@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ssamz.biz.board.BoardDAO;
 import com.ssamz.biz.board.BoardVO;
+import com.ssamz.biz.user.UserVO;
 
 @WebServlet("/getBoardList.do")
 public class GetBoardListServlet extends HttpServlet {
@@ -56,7 +57,8 @@ public class GetBoardListServlet extends HttpServlet {
 		//out.println("<h3>테스터님 로그인 환영합니다.......");
 		
 		/******  8.2.2 세션 응용 : 사용자 이름 출력 **********/
-		String userName = (String) session.getAttribute("userName");
+		//String userName = (String) session.getAttribute("userName");
+		UserVO user = (UserVO) session.getAttribute("user");
 		
 		// 포워딩된 HttpServletRequest 에서 welcomeMessage 추출 ( page 262 )		
 		//String welcomeMessage = (String) request.getAttribute("welcomeMessage");
@@ -68,7 +70,8 @@ public class GetBoardListServlet extends HttpServlet {
 		//String welcomeMessage = (String) context.getAttribute("welcomeMessage");
 		//out.println("<h3>" + userName + welcomeMessage);
 		
-		out.println("<h3>" + userName + "님 로그인 환영합니다.....");		
+		//out.println("<h3>" + userName + "님 로그인 환영합니다.....");	
+		out.println("<h3>" + user.getName() + "님 로그인 환영합니다.....");
 
 		out.println("<a href='logout.do'>Log-out</a></h3>");
 		

@@ -86,7 +86,7 @@ public class GetBoardServlet extends HttpServlet {
 		
 		out.println("<a href='insertBoard.html'>글등록</a>&nbsp;&nbsp;&nbsp;");
 		
-		//out.println("<a href='deleteBoard.do?seq=" + board.getSeq() + "'>글삭제</a>&nbsp;&nbsp;&nbsp;");
+		out.println("<a href='deleteBoard.do?seq=" + board.getSeq() + "'>글삭제</a>&nbsp;&nbsp;&nbsp;");
 		/********** 권한 이용 ( page 244 ) **************/
 		HttpSession session = request.getSession();
 		String userRole = (String) session.getAttribute("userRole");
