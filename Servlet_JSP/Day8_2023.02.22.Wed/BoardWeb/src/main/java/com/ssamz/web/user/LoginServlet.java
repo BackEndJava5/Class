@@ -115,23 +115,30 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("userName", user.getName());
 				session.setAttribute("userRole", user.getRole());
 
-				/*** HttpServletRequest와 포워딩 ( page 261 )****/
+				/*** 9.1.2 HttpServletRequest와 포워딩 ( page 261 )****/
 				// 글 목록 화면으로 포워딩한다.
 				// 글 목록 화면에서 사용할 데이터를 HttpSErvletRequest에 등록한다. ( page 261 )
 				//request.setAttribute("welcomeMessage", "님 환영합니다.");
 				//RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
 				//dispatcher.forward(request, response);
 
-				/*** HttpServletRequest와 리디렉트 ( page 262 )****/
+				/*** 9.1.2 HttpServletRequest와 리디렉트 ( page 262 )****/
 				// 글 목록 화면으로 리디렉트한다.
 				// 포워드가 아닌 리디렉트된 서블릿에서는 HttpServletRequest로부터 데이터를 추출할 수 없다. ( page 264 ) 
 				// response.sendRedirect("getBoardList.do");
 				
-				/*** HttpSession과 정보공유(리디렉트) ( page 266 )****/
+				/*** 9.1.3 HttpSession과 정보공유(리디렉트) ( page 266 )****/
 				// 글 목록 화면으로 리디렉트한다.
 				// 리디렉트 관계에 있는 서블릿 사이에서 정보를 공유하려면 HttpSession에 공유 데이터를 저장해야 한다.
-				session.setAttribute("welcomeMessage", "님 환영합니다.");
+				//session.setAttribute("welcomeMessage", "님 환영합니다.");
+				//response.sendRedirect("getBoardList.do");
+				
+				/*** 9.1.4  ServletContext와 정보공유 ( page 268 )****/
+				// 글 목록 화면에서 사용할 데이터를 ServletContext에 등록한다.
+				ServletContext context = getServletContext();
+				context.setAttribute("welcomeMessage", "님 환영합니다.");
 				response.sendRedirect("getBoardList.do");
+				
 			} else {
 				out.println("비밀번호 오류입니다.<br>");
 				out.println("<a href='/'>다시 로그인</a>");

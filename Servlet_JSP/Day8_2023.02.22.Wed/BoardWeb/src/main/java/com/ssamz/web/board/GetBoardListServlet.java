@@ -66,10 +66,10 @@ public class GetBoardListServlet extends HttpServlet {
 			response.sendRedirect("/");
 		}
 		
-		// 1. 사용자 입력정보 추출
-//		ServletContext context = request.getServletContext();
-//		String encoding = context.getInitParameter("boardEncoding"); 
-//		request.setCharacterEncoding(encoding);		
+		// 인코딩 설정
+		ServletContext context = request.getServletContext();
+		String encoding = context.getInitParameter("boardEncoding"); 
+		request.setCharacterEncoding(encoding);
 		
 		String searchCondition = request.getParameter("searchCondition");
 		String searchKeyword = request.getParameter("searchKeyword");
@@ -108,7 +108,10 @@ public class GetBoardListServlet extends HttpServlet {
 		//String welcomeMessage = (String) request.getAttribute("welcomeMessage");
 		
 		// 리디렉트된 HttpSession에서 welcomeMessage 추출 ( page 266 )	
-		String welcomeMessage = (String) session.getAttribute("welcomeMessage");
+		//String welcomeMessage = (String) session.getAttribute("welcomeMessage");
+		
+		// 리디렉트된 ServletContext에서 welcomeMessage 추출 ( page 269 )	
+		String welcomeMessage = (String) context.getAttribute("welcomeMessage");
 		
 		//out.println("<h3>" + userName + "님 로그인 환영합니다.....");
 		out.println("<h3>" + userName + welcomeMessage);
