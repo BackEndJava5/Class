@@ -8,7 +8,7 @@
     <param-name>boardEncoding</param-name>
     <param-value>UTF-8</param-value>
   </context-param>
-  <filter>
+<!--   <filter>
     <display-name>TimeCheckFilter</display-name>
     <filter-name>TimeCheckFilter</filter-name>
     <filter-class>com.ssamz.web.common.TimeCheckFilter</filter-class>
@@ -16,5 +16,5 @@
   <filter-mapping>
     <filter-name>TimeCheckFilter</filter-name>
     <url-pattern>*.do</url-pattern>
-  </filter-mapping>
+  </filter-mapping> -->
 </web-app>
