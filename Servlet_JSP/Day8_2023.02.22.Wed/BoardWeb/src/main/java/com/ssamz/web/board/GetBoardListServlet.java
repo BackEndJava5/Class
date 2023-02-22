@@ -104,9 +104,12 @@ public class GetBoardListServlet extends HttpServlet {
 		/******  8.2.2 세션 응용 : 사용자 이름 출력 **********/
 		String userName = (String) session.getAttribute("userName");
 		
-		// 포워딩된 welcomeMessage 추출 ( page 262 )		
-		// HttpServletRequest 에서 추출
-		String welcomeMessage = (String) request.getAttribute("welcomeMessage");
+		// 포워딩된 HttpServletRequest 에서 welcomeMessage 추출 ( page 262 )		
+		//String welcomeMessage = (String) request.getAttribute("welcomeMessage");
+		
+		// 리디렉트된 HttpSession에서 welcomeMessage 추출 ( page 266 )	
+		String welcomeMessage = (String) session.getAttribute("welcomeMessage");
+		
 		//out.println("<h3>" + userName + "님 로그인 환영합니다.....");
 		out.println("<h3>" + userName + welcomeMessage);
 		
