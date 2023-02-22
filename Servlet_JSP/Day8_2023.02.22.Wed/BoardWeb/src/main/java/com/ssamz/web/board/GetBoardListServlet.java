@@ -16,9 +16,6 @@ import javax.servlet.http.HttpSession;
 import com.ssamz.biz.board.BoardDAO;
 import com.ssamz.biz.board.BoardVO;
 
-/*
- * 7.2.1 글 목록 구현
- */
 @WebServlet("/getBoardList.do")
 public class GetBoardListServlet extends HttpServlet {
 

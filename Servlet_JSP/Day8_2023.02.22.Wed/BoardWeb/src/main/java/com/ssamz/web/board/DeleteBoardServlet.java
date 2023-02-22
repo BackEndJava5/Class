@@ -20,7 +20,6 @@ public class DeleteBoardServlet extends HttpServlet {
 	//protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		// 1. 사용자 입력 정보 추출
 		String seq = request.getParameter("seq");
 
