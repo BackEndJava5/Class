@@ -21,56 +21,12 @@ import com.ssamz.biz.board.BoardVO;
  */
 @WebServlet("/getBoardList.do")
 public class GetBoardListServlet extends HttpServlet {
-	private static final long seralVersionUID = 1L;
+
+	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		/********** 8.1.2 쿠키 *************/
-		// 0. 상태 정보 체크( page 229 )
-		/*
-		Cookie[] cookieList = request.getCookies();
-		if (cookieList == null) {
-			response.sendRedirect("/login.html");
-		} else {
-			String userId = null;
-
-			for (Cookie cookie : cookieList) {
-				if (cookie.getName().equals("userId")) {
-					userId = cookie.getValue();
-				}
-			}
-			if (userId == null) {
-				response.sendRedirect("/login.html");
-			}
-		}*/
-
-		/********** 8.1.3 세션 (page 234) *************/
-		// 0. 상태 정보 체크
-        /*
-		HttpSession session = request.getSession();
-		String sessionId = session.getId();
-		System.out.println("GetBoardListServlet service() sessionId : " + sessionId);
-			
-		if (session.isNew()) {
-			System.out.println("===> 처음 생성된 세션 : " + sessionId);
-		} else {
-			System.out.println("===> 재사용중인 세션 : " + sessionId);
-		}
-		*/
-		
-		// 0. 상태 정보 체크( page 238 )
-		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("userId");
-		if (userId == null) {
-			response.sendRedirect("/");
-		}
-		
-		// 인코딩 설정
-		ServletContext context = request.getServletContext();
-		String encoding = context.getInitParameter("boardEncoding"); 
-		request.setCharacterEncoding(encoding);
-		
 		String searchCondition = request.getParameter("searchCondition");
 		String searchKeyword = request.getParameter("searchKeyword");
 		
@@ -79,6 +35,7 @@ public class GetBoardListServlet extends HttpServlet {
 		if(searchKeyword == null) searchKeyword = "";
 		
 		// 세션에 검색 관련 정보를 저장한다.
+		HttpSession session = request.getSession();
 		session.setAttribute("condition", searchCondition);
 		session.setAttribute("keyword", searchKeyword);
 
@@ -111,11 +68,11 @@ public class GetBoardListServlet extends HttpServlet {
 		//String welcomeMessage = (String) session.getAttribute("welcomeMessage");
 		
 		// 리디렉트된 ServletContext에서 welcomeMessage 추출 ( page 269 )	
-		String welcomeMessage = (String) context.getAttribute("welcomeMessage");
+		//String welcomeMessage = (String) context.getAttribute("welcomeMessage");
+		//out.println("<h3>" + userName + welcomeMessage);
 		
-		//out.println("<h3>" + userName + "님 로그인 환영합니다.....");
-		out.println("<h3>" + userName + welcomeMessage);
-		
+		out.println("<h3>" + userName + "님 로그인 환영합니다.....");		
+
 		out.println("<a href='logout.do'>Log-out</a></h3>");
 		
 		/******  8.2.3 검색 기능 구현 (page 249) **********/
