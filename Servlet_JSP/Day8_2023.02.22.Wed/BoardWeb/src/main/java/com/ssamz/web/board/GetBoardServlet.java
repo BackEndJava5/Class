@@ -86,12 +86,13 @@ public class GetBoardServlet extends HttpServlet {
 		
 		out.println("<a href='insertBoard.html'>글등록</a>&nbsp;&nbsp;&nbsp;");
 		
-		out.println("<a href='deleteBoard.do?seq=" + board.getSeq() + "'>글삭제</a>&nbsp;&nbsp;&nbsp;");
 		/********** 권한 이용 ( page 244 ) **************/
 		HttpSession session = request.getSession();
-		String userRole = (String) session.getAttribute("userRole");
-		if(userRole.equals("ADMIN")) {
-			out.println("<a href='deleteBoard.do?seq=" + board.getSeq() + "'글삭제</a>&nbsp;&nbsp;&nbsp;");
+		//String userRole = (String) session.getAttribute("userRole");
+		UserVO user = (UserVO) session.getAttribute("user");
+		//if(userRole.equals("ADMIN")) {
+		if(user.getRole().equals("ADMIN")) {
+			out.println("<a href='deleteBoard.do?seq=" + board.getSeq() + "'>글삭제</a>&nbsp;&nbsp;&nbsp;");
 		}		
 		
 		out.println("<a href='getBoardList.do'>글목록</a>");
