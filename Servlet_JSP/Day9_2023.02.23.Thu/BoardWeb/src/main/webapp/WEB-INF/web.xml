@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>BoardWeb</display-name>
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>boardEncoding</param-name>
+		<param-value>UTF-8</param-value>
+	</context-param>
+	<!-- <filter> <display-name>TimeCheckFilter</display-name> <filter-name>TimeCheckFilter</filter-name> 
+		<filter-class>com.ssamz.web.common.TimeCheckFilter</filter-class> </filter> 
+		<filter-mapping> <filter-name>TimeCheckFilter</filter-name> <url-pattern>*.do</url-pattern> 
+		</filter-mapping> -->
+	<!-- <listener> <listener-class>com.ssamz.web.common.BoardWebContextListener</listener-class> 
+		</listener> -->
+</web-app>
