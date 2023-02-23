@@ -1,5 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,13 +6,12 @@
 <title>TITLE</title>
 </head>
 <body>
-	<%@ include file="../layout/header.jsp"%>
+
+	<br>
+	<hr>
+	<br>
 	<center>
-		<h1>
-			<font color='green'><%=request.getParameter("id").toString()%></font>님
-			환영합니다.
-		</h1>
+		문의 전화 : 02-1234-1234<br> 주소 : 서울시 강남구 쌤즈대로 123
 	</center>
-	<%@ include file="../layout/footer.jsp"%>
 </body>
 </html>
