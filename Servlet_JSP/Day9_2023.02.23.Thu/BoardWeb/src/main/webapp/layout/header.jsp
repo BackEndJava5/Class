@@ -9,7 +9,7 @@
 	<hr>
 	<a href="index.jsp">Home</a>&nbsp;&nbsp;&nbsp;
 	<a href="insertUser.jsp">회원가입</a>&nbsp;&nbsp;&nbsp;
-	<a href="#">로그인</a>&nbsp;&nbsp;&nbsp;
+	<a href="login.jsp">로그인</a>&nbsp;&nbsp;&nbsp;
 	<hr>
 	<br>
 </body>
