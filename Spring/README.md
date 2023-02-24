@@ -79,3 +79,13 @@ INFO : org.springframework.context.support.GenericApplicationContext - Closing o
 2. select * from dba_profiles where profile='DEFAULT' and resource_name='PASSWORD_LIFE_TIME';
 3. alter profile default  limit password_life_time unlimited;
 ```
+- 사용자 생성(C##book_ex/oracle)
+```
+CREATE USER C##book_ex IDENTIFIED BY oracle
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+
+GRANT CONNECT, DBA TO C##book_ex;
+
+C##book_ex/oracle 접속
+```
