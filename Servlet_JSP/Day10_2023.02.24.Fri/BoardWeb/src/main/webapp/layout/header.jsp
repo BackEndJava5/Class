@@ -22,7 +22,7 @@
 	} else {
 	%>
 	<a href="insertBoard.jsp">글등록</a>&nbsp;&nbsp;&nbsp;
-	<a href="logout_proc.jsp">로그아웃</a>&nbsp;&nbsp;&nbsp;
+	<a href="logout.do">로그아웃</a>&nbsp;&nbsp;&nbsp;
 	<%
 	}
 	%>

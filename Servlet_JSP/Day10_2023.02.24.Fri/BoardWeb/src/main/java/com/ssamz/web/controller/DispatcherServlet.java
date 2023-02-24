@@ -80,6 +80,11 @@ public class DispatcherServlet extends HttpServlet {
 
 		} else if (path.equals("/logout.do")) {
 			System.out.println("로그아웃 처리");
+			
+			HttpSession session = request.getSession();
+			session.invalidate();
+
+			response.sendRedirect("/");
 		} else if (path.equals("/insertBoard.do")) {
 			System.out.println("글 등록 처리");
 			
