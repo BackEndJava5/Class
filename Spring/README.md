@@ -99,4 +99,13 @@ EXEC DBMS_XDB.SETHTTPPORT(9090);
 INFO : org.zerock.persistence.JDBCTests - oracle.jdbc.driver.T4CConnection@39d76cb5
 ```
 - 커넥션 풀 설정 ( HikariCP )
-- 
+- https://mvnrepository.com/artifact/com.zaxxer/HikariCP/2.7.4
+```
+<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+<dependency>
+    <groupId>com.zaxxer</groupId>
+    <artifactId>HikariCP</artifactId>
+    <version>2.7.4</version>
+</dependency>
+
+```
