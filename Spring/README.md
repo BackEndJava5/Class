@@ -52,3 +52,11 @@ https://mvnrepository.com/artifact/org.springframework/spring-test/5.0.7.RELEASE
 ```
 1. 프로젝트 우클릭 > build path > Add Library > JUNIT > JUnit4
 2. 프로젝트 우클릭 > Run As > JUnit Test
+
+```
+INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO : org.zerock.sample.SampleTests - Restaurant(chef=Chef())
+INFO : org.zerock.sample.SampleTests - ----------------------
+INFO : org.zerock.sample.SampleTests - Chef()
+INFO : org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@b9b00e0: startup date [Fri Feb 24 23:52:59 KST 2023]; root of context hierarchy
+```
