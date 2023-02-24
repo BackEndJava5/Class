@@ -95,3 +95,8 @@ SELECT DBMS_XDB.GETHTTPPORT() FROM DUAL;
 EXEC DBMS_XDB.SETHTTPPORT(9090);
 ```
 - JDBC 연결
+```
+INFO : org.zerock.persistence.JDBCTests - oracle.jdbc.driver.T4CConnection@39d76cb5
+```
+- 커넥션 풀 설정 ( HikariCP )
+- 
