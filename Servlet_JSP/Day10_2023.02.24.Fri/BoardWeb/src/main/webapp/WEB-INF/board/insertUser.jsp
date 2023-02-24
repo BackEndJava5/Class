@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ include file="../layout/header.jsp"%>
+<%@ include file="../../WEB-INF/layout/header.jsp"%>
 
 <center>
 	<h1>회원가입</h1>
@@ -60,5 +60,5 @@
 	</form>
 </center>
 
-<%@ include file="../layout/footer.jsp"%>
+<%@ include file="../../WEB-INF/layout/footer.jsp"%>
 

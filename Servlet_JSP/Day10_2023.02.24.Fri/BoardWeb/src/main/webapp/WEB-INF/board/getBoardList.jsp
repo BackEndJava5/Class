@@ -4,7 +4,9 @@
 <%@page import="com.ssamz.biz.board.BoardDAO"%>
 <%@page import="com.ssamz.biz.board.BoardVO"%>
 <%@page import="java.util.List"%>
-<%@include file="../layout/header.jsp"%>
+
+
+<%@include file="../../WEB-INF/layout/header.jsp"%>
 
 
 <%
@@ -78,5 +80,5 @@ List<BoardVO> boardList = (List) request.getAttribute("boardList");
 	</table>
 </center>
 
-<%@ include file="../layout/footer.jsp"%>
+<%@ include file="../../WEB-INF/layout/footer.jsp"%>
 

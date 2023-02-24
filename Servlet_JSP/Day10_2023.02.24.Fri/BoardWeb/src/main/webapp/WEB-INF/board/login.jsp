@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<%@ include file="../layout/header.jsp"%>
+	<%@ include file="../../WEB-INF/layout/header.jsp"%>
 
 	<center>
 
@@ -33,6 +33,6 @@
 		<hr>
 	</center>
 	
-	<%@ include file="../layout/footer.jsp"%>
+	<%@ include file="../../WEB-INF/layout/footer.jsp"%>
 </body>
 </html>

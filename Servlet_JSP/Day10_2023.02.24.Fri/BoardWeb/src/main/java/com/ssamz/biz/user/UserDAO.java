@@ -12,9 +12,10 @@ import com.ssamz.biz.common.JDBCUtil;
 public class UserDAO {
 
 	// JDBC관련변수
-	Connection conn = null;
-	PreparedStatement stmt = null;
-	ResultSet rs = null;
+	private Connection conn=null;
+	private PreparedStatement stmt = null;
+	private ResultSet rs = null;
+
 
 	// USERS 테이블 관련 SQL 명령어
 	private String USER_LIST = "select * from users";

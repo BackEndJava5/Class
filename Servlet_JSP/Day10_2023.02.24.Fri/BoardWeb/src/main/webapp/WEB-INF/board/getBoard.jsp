@@ -3,7 +3,7 @@
 <%@ page import="com.ssamz.biz.board.BoardDAO"%>
 <%@ page import="com.ssamz.biz.board.BoardVO"%>
 
-<%@ include file="../layout/header.jsp"%>
+<%@ include file="../../WEB-INF/layout/header.jsp"%>
 
 <%
 //1. 컨트롤러(Servlet)가 모델(DAO)을 이용하여 request에 등록한 글 목록을 꺼낸다.
@@ -60,4 +60,4 @@ BoardVO board = (BoardVO) request.getAttribute("board");
 
 </center>
 
-<%@ include file="../layout/footer.jsp"%>
+<%@ include file="../../WEB-INF/layout/footer.jsp"%>
