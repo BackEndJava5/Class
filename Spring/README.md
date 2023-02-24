@@ -20,7 +20,7 @@
                 </configuration>
             </plugin>
 ```
-Project configurator "com.springsource.sts.ide.maven.core.springProjectConfigurator" required by plugin execution "org.apache.maven.plugins:maven-compiler-<em>plugin:2.5.1:testCompile (execution: default-testCompile, phase: test-compile)" is not available.<em> To enable full functionality, install the project configurator and run Maven->Update Project Configuration.
+Project configurator "com.springsource.sts.ide.maven.core.springProjectConfigurator" required by plugin execution "org.apache.maven.plugins:maven-compiler-**plugin:2.5.1:testCompile (execution: default-testCompile, phase: test-compile)" is not available.** To enable full functionality, install the project configurator and run Maven->Update Project Configuration.
 
 1. 프로젝트 우클릭 > Run As > Maven Install
 2. 프로젝트 우클릭 > Maven > Update Project 
