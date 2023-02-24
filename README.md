@@ -1,4 +1,4 @@
-# Class
+# Servlet & JSP Class
 
 - 함께하는 IT수업 https://cafe.naver.com/itclasswithus
 
@@ -15,3 +15,5 @@
 - Day9 : CH11 JSP 개요 및 스크립트 기반 태그 /  CH12 내장 객체와 게시판 프로그램 구현
 
 - Day10 : CH13 MVC 디자인 패턴 적용
+
+# Spring Class
