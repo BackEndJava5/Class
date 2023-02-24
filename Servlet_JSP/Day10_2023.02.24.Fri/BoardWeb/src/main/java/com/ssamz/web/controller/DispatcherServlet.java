@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import com.ssamz.biz.board.BoardDAO;
 import com.ssamz.biz.board.BoardVO;
+import com.ssamz.biz.user.UserDAO;
+import com.ssamz.biz.user.UserVO;
 
 @WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {
@@ -29,9 +31,33 @@ public class DispatcherServlet extends HttpServlet {
 		// 2. 추출된 path 정보에 따라 요청을 분기 처리한다.
 		if (path.equals("/login.do")) {
 			System.out.println("로그인 처리");
+
+			// 1. 사용자 입력 정보 추출
+			String id = request.getParameter("id");
+			String password = request.getParameter("password");
+
+			// 2. DB 연동처리
+			UserVO vo = new UserVO();
+			vo.setId(id);
+			UserDAO dao = new UserDAO();
+			UserVO user = dao.getUser(vo);
+
+			// 2. 화면 이동
+			if (user != null && user.getPassword().equals(password)) {
+				// 상태 정보를 세션에 저장한다.
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+
+				// 글 목록 화면으로 이동한다.
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/getBoardList.do");
+				dispatcher.forward(request, response);
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+				dispatcher.forward(request, response);
+			}
 		} else if (path.equals("/insertUser.do")) {
 			System.out.println("회원가입 처리");
-			
+
 			// 1. 사용자 입력 정보 추출
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
@@ -51,7 +77,7 @@ public class DispatcherServlet extends HttpServlet {
 			// 3. 화면 이동
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/");
 			dispatcher.forward(request, response);
-			
+
 		} else if (path.equals("/logout.do")) {
 			System.out.println("로그아웃 처리");
 		} else if (path.equals("/insertBoard.do")) {
@@ -64,8 +90,8 @@ public class DispatcherServlet extends HttpServlet {
 			System.out.println("글 상세 조회 처리");
 		} else if (path.equals("/getBoardList.do")) {
 			System.out.println("글 목록 검색 처리");
-				
-			//1. 검색 입력 정보 추출
+
+			// 1. 검색 입력 정보 추출
 			String searchCondition = request.getParameter("searchCondition");
 			String searchKeyword = request.getParameter("searchKeyword");
 
@@ -87,11 +113,11 @@ public class DispatcherServlet extends HttpServlet {
 
 			BoardDAO boardDAO = new BoardDAO();
 			List<BoardVO> boardList = boardDAO.getBoardList(vo);
-			
+
 			// 3. 화면 이동
 			request.setAttribute("boardList", boardList);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/getBoardList.jsp");
-			dispatcher.forward(request, response); 
+			dispatcher.forward(request, response);
 		}
 	}
 }
