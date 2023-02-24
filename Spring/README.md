@@ -50,3 +50,5 @@ https://mvnrepository.com/artifact/org.springframework/spring-test/5.0.7.RELEASE
 ...
 <!-- <scope>runtime</scope> -->
 ```
+1. 프로젝트 우클릭 > build path > Add Library > JUNIT > JUnit4
+2. 프로젝트 우클릭 > Run As > JUnit Test
