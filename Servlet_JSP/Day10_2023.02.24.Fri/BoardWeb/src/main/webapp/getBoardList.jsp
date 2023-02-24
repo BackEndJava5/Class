@@ -8,26 +8,7 @@
 
 
 <%
-/* //1. 사용자 입력 정보 추출
-String searchCondition=request.getParameter("searchCondition");
-String searchKeyword = request.getParameter("searchKeyword");
 
-//Null Check
-if(searchCondition == null) searchCondition = "TITLE";
-if(searchKeyword == null) searchKeyword= "";
-
-
-// 세션에 검색 관련 정보를 저장한다.
-session.setAttribute("condition", searchCondition);
-session.setAttribute("keyword", searchKeyword);
-
-//2. DB 연동처리
-BoardVO vo= new BoardVO();
-vo.setSearchCondition(searchCondition);
-vo.setSearchKeyword(searchKeyword);
-		
-BoardDAO dao= new BoardDAO();
-List<BoardVO> boardList=dao.getBoardList(vo); */
 
 //1. 컨트롤러(Servlet)가 모델(DAO)을 이용하여 request에 등록한 글 목록을 꺼낸다.
 List<BoardVO> boardList = (List) request.getAttribute("boardList");
@@ -86,7 +67,7 @@ List<BoardVO> boardList = (List) request.getAttribute("boardList");
 
 		<tr>
 			<td><%=board.getSeq()%></td>
-<td align="left"><a href="getBoard.jsp?seq=<%=board.getSeq()%>">
+<td align="left"><a href="getBoard.do?seq=<%=board.getSeq()%>">
 <%=board.getTitle()%></a></td>
 			<td><%=board.getWriter()%></td>
 			<td><%=board.getRegDate()%></td>
