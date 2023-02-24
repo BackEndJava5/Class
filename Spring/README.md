@@ -112,15 +112,28 @@ INFO : org.zerock.persistence.JDBCTests - oracle.jdbc.driver.T4CConnection@39d76
 - https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby
 - root-context.xml
 ```
-    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-        <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:myoracle"></property>
-        <property name="username" value="spring"></property>
-        <property name="password" value="1234"></property>
-    </bean>
-    
-    <!-- HikariCP Configuration -->
-    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-        <constructor-arg ref="hikariConfig"></constructor-arg>
-    </bean>
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="jdbcUrl"
+			value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="C##book_ex"></property>
+		<property name="password" value="oracle"></property>
+	</bean>
+
+	<!-- HikariCP Configuration -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig"></constructor-arg>
+	</bean>
+```
+```
+INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+WARN : com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@697145861 wrapping oracle.jdbc.driver.T4CConnection@497570fb
+INFO : org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@7db12bb6: startup date [Sat Feb 25 01:08:31 KST 2023]; root of context hierarchy
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 ```
