@@ -60,3 +60,10 @@ INFO : org.zerock.sample.SampleTests - ----------------------
 INFO : org.zerock.sample.SampleTests - Chef()
 INFO : org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@b9b00e0: startup date [Fri Feb 24 23:52:59 KST 2023]; root of context hierarchy
 ```
+```
+INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO : org.zerock.sample.HotelTests - SampleHotel(chef=Chef())
+INFO : org.zerock.sample.HotelTests - ---------------
+INFO : org.zerock.sample.HotelTests - Chef()
+INFO : org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@506ae4d4: startup date [Sat Feb 25 00:02:14 KST 2023]; root of context hierarchy
+```
