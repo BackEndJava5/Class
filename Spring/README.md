@@ -137,3 +137,64 @@ INFO : org.springframework.context.support.GenericApplicationContext - Closing o
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 ```
+## 04 MyBatis와 스프링 연동
+- https://mybatis.org/spring/ko/factorybean.html
+- https://mvnrepository.com
+- pom.xml https://mvnrepository.com/artifact/org.mybatis/mybatis/3.4.6
+```
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.4.6</version>
+</dependency>
+
+```
+- pom.xml https://mvnrepository.com/artifact/org.mybatis/mybatis-spring/1.3.2
+```
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis-spring</artifactId>
+    <version>1.3.2</version>
+</dependency>
+```
+- root-context.xml
+```
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource" />
+</bean>
+```
+- org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in URL [file:src/main/webapp/WEB-INF/spring/root-context.xml]: Error setting property values; https://kookyungmin.github.io/server/2018/08/13/spring_06/
+- root-context.xml
+```
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"></property>
+</bean>
+```
+- src/main/resources에 mybatis-config.xml 파일 추가
+```
+<!-- mybatis-config.xml -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+</configuration>
+```
+- root-context.xml
+```
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"></property>
+    <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+</bean>
+```
+```
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1099694603 wrapping oracle.jdbc.driver.T4CConnection@d0ec63
+INFO : org.zerock.persistence.DataSourceTests - org.apache.ibatis.session.defaults.DefaultSqlSession@6e8a9c30
+INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1560406561 wrapping oracle.jdbc.driver.T4CConnection@d0ec63
+```
+
