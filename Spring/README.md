@@ -1,17 +1,5 @@
-# Class
+# Spring Class
 
-- 함께하는 IT수업 https://cafe.naver.com/itclasswithus
-
-- Day4 : JDBC DAO/VO Classes
-
-- Day5 : CH5 사용자 요청 처리 / CH6 서블릿 핵심 객체 / CH7.1 VO, DAO 클래스 작성
-
-- Day6 : CH7 서블릿을 이용한 게시판 구현
-
-- Day7 : CH8 상태 정보 유지
-
-- Day8 : CH9 서블릿 객체와 정보 공유 / CH10 필터와 리스너
-
-- Day9 : CH11 JSP 개요 및 스크립트 기반 태그 /  CH12 내장 객체와 게시판 프로그램 구현
-
-- Day10 : CH13 MVC 디자인 패턴 적용
+- STS 4 버전부터는 스프링 레거시 프로젝트 생성이 안 되고 스프링 부트만 생성 가능하기 때문에, 스프링 레거시 프로젝트를 생성하기 위해서는 STS 3 버전을 사용해야 합니다.
+- 이클립스 마켓플레이스에서 STS3 플러그인 지원이 안 되는 버전이라면 STS를 별도로 설치해야 합니다. 
+  Spring Tools 3 (Standalone Edition) 3.9.14 is not supported anymore and is not compatible with the latest Eclipse 2021-09 release. The entry on the Eclipse marketplace is flagged as available for Eclipse 2020-09 as the latest. We do provide Spring Tools 3 distribution builds for newer Eclipse versions, but since they are not supported anymore for a long time now, those are not well tested. If you urgently need that version, you can get them from here: https://github.com/spring-projects/toolsuite-distribution/wiki/Spring-Tool-Suite-3
