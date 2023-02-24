@@ -74,8 +74,8 @@ INFO : org.springframework.context.support.GenericApplicationContext - Closing o
 - Oracle 서비스 시작
 
 - SQL Developer ORA-28002 7 일안에 비밀번호가 만기될 것입니다. 경고 발생 https://aljjabaegi.tistory.com/301
+```
 1. 관리자계정(system/oralce)접속
-2. ```
-3. select * from dba_profiles where profile='DEFAULT' and resource_name='PASSWORD_LIFE_TIME';
-4. alter profile default  limit password_life_time unlimited;
-5. ```
+2. select * from dba_profiles where profile='DEFAULT' and resource_name='PASSWORD_LIFE_TIME';
+3. alter profile default  limit password_life_time unlimited;
+```
