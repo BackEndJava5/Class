@@ -17,3 +17,5 @@
 - Day10 : CH13 MVC 디자인 패턴 적용
 
 # Spring Class
+
+- 설치 : https://github.com/spring-attic/toolsuite-distribution/wiki/Spring-Tool-Suite-3
