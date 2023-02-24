@@ -89,3 +89,9 @@ GRANT CONNECT, DBA TO C##book_ex;
 
 C##book_ex/oracle 접속
 ```
+- 8080 포트 변경
+```
+SELECT DBMS_XDB.GETHTTPPORT() FROM DUAL;
+EXEC DBMS_XDB.SETHTTPPORT(9090);
+```
+- JDBC 연결
