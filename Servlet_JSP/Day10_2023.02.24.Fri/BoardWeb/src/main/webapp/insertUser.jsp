@@ -4,7 +4,7 @@
 
 <center>
 	<h1>회원가입</h1>
-	<form action="insertUser_proc.jsp" method="post">
+	<form action="insertUser.do" method="post">
 		<table border="1 cellpadding=" 0" cellspacing="0">
 
 			<tr>
