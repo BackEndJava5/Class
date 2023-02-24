@@ -42,3 +42,11 @@ https://mvnrepository.com/artifact/org.springframework/spring-test/5.0.7.RELEASE
 			<!-- <scope>test</scope> -->
 		</dependency>
 ```
+- Spring - Log4j cannot be resolved to a type 에러 https://moon1226.tistory.com/93
+
+- pom.xml
+```
+<artifactId>log4j</artifactId>
+...
+<!-- <scope>runtime</scope> -->
+```
