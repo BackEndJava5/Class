@@ -67,3 +67,8 @@ INFO : org.zerock.sample.HotelTests - ---------------
 INFO : org.zerock.sample.HotelTests - Chef()
 INFO : org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@506ae4d4: startup date [Sat Feb 25 00:02:14 KST 2023]; root of context hierarchy
 ```
+## 03 스프링과 Oracle Database 연동
+- Oracle 18c XE + 'C##'
+- sys/oracle
+- SQL Developer
+- Oracle 서비스 시작
