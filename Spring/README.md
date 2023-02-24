@@ -100,6 +100,7 @@ INFO : org.zerock.persistence.JDBCTests - oracle.jdbc.driver.T4CConnection@39d76
 ```
 - 커넥션 풀 설정 ( HikariCP )
 - https://mvnrepository.com/artifact/com.zaxxer/HikariCP/2.7.4
+- pom.xml
 ```
 <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
 <dependency>
@@ -107,5 +108,19 @@ INFO : org.zerock.persistence.JDBCTests - oracle.jdbc.driver.T4CConnection@39d76
     <artifactId>HikariCP</artifactId>
     <version>2.7.4</version>
 </dependency>
-
+```
+- https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby
+- root-context.xml
+```
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+        <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:myoracle"></property>
+        <property name="username" value="spring"></property>
+        <property name="password" value="1234"></property>
+    </bean>
+    
+    <!-- HikariCP Configuration -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="hikariConfig"></constructor-arg>
+    </bean>
 ```
