@@ -53,7 +53,7 @@ BoardVO board = (BoardVO) request.getAttribute("board");
 	<%
 	if (user.getRole().equals("ADMIN")) {
 	%>
-	<a href="deleteBoard_proc.jsp?seq=<%=board.getSeq()%>">글삭제</a>
+	<a href="deleteBoard.do?seq=<%=board.getSeq()%>">글삭제</a>
 	<%
 	}
 	%>

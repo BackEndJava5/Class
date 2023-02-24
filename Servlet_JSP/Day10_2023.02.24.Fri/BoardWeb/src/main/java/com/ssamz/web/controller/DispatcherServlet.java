@@ -122,6 +122,20 @@ public class DispatcherServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		} else if (path.equals("/deleteBoard.do")) {
 			System.out.println("글 삭제 처리");
+			
+			// 1. 사용자 입력 정보 추출
+			String seq = request.getParameter("seq");
+
+			// 2. DB 연동 처리
+			BoardVO vo = new BoardVO();
+			vo.setSeq(Integer.parseInt(seq));
+
+			BoardDAO dao = new BoardDAO();
+			dao.deleteBoard(vo);
+
+			// 3. 화면 이동
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/getBoardList.do");
+			dispatcher.forward(request, response);
 		} else if (path.equals("/getBoard.do")) {
 			System.out.println("글 상세 조회 처리");
 
