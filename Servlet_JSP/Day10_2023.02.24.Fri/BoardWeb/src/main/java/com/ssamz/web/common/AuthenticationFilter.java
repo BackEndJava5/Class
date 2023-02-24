@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = { "/getBoard.do", "/deleteBoard.do"})
+@WebFilter(urlPatterns = { "/getBoardList.do", "/getBoard.do", "/deleteBoard.do"})
 public class AuthenticationFilter extends HttpFilter implements Filter {
 
 	private static final long serialVersionUID = 1L;
