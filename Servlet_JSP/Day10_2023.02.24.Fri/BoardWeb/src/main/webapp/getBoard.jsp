@@ -13,7 +13,7 @@ BoardVO board = (BoardVO) request.getAttribute("board");
 
 <center>
 
-	<form action='updateBoard_proc.jsp' method='post'>
+	<form action='updateBoard.do' method='post'>
 		<input name='seq' type='hidden' value="<%=board.getSeq()%>" />
 		<table border='1' cellpadding='0' cellspacing='0'>
 
