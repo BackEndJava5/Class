@@ -138,6 +138,7 @@ INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 ```
 ## 04 MyBatis와 스프링 연동
+### 4.1 MyBatis
 - https://mybatis.org/spring/ko/factorybean.html
 - https://mvnrepository.com
 - pom.xml https://mvnrepository.com/artifact/org.mybatis/mybatis/3.4.6
@@ -197,4 +198,4 @@ INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1099694603
 INFO : org.zerock.persistence.DataSourceTests - org.apache.ibatis.session.defaults.DefaultSqlSession@6e8a9c30
 INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1560406561 wrapping oracle.jdbc.driver.T4CConnection@d0ec63
 ```
-
+### 4.2 스프링과의 연동 
