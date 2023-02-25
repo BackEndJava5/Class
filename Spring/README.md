@@ -290,14 +290,13 @@ INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 ```
 ### 4.3 log4jdbc-log4j2 설정
 - https://kimvampa.tistory.com/63
-- Maven repository 사이트(https://mvnrepository.com/)에서 log4jdbc-log4j2를 검색, 라이브러리 추가를 위한 Maven 코드 얻기
+- Maven repository 사이트(https://mvnrepository.com) 에서 log4jdbc-log4j2를 검색, 라이브러리 추가를 위한 Maven 코드 얻기
 
 ```
 WARN : org.springframework.context.support.GenericApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hikariConfig' defined in URL [file:src/main/webapp/WEB-INF/spring/root-context.xml]: Error setting property values; nested exception is org.springframework.beans.PropertyBatchUpdateException; nested PropertyAccessExceptions (1) are:
 PropertyAccessException 1: org.springframework.beans.MethodInvocationException: Property 'driverClassName' threw exception; nested exception is java.lang.NoClassDefFoundError: Unable to find Log4j2 as default logging library. Please provide a logging library and configure a valid spyLogDelegator name in the properties file.
 ```
-https://okky.kr/articles/665522
-- pom.xml ( log4j-api & log4j-core 추가 ) 
+- pom.xml ( log4j-api & log4j-core 추가 ) https://okky.kr/articles/665522
 ```
 <!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4 -->
 <dependency>
