@@ -317,10 +317,13 @@ PropertyAccessException 1: org.springframework.beans.MethodInvocationException: 
 	<version>2.0.1</version>
 </dependency>
 ```	
-- JDBCTests_DriverSpy.java 추가(log.info() 확인)
+- JDBCTests_DriverSpy.java 추가(log.warn & log.info() 확인)
 ```
-INFO : org.zerock.persistence.JDBCTests_DriverSpy - net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5f233b26
-net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5f233b26
-INFO : org.zerock.persistence.JDBCTests_DriverSpy - select sysdate from dual: 2023-02-25 21:19:20
-select sysdate from dual: 2023-02-25 21:19:20
+log4j:WARN Continuable parsing error 56 and column 23
+log4j:WARN The content of element type "log4j:configuration" must match "(renderer*,appender*,plugin*,(category|logger)*,root?,(categoryFactory|loggerFactory)?)".
+WARN : org.zerock.persistence.JDBCTests_DriverSpy - net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1654a892
+INFO : org.zerock.persistence.JDBCTests_DriverSpy - net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1654a892
+net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1654a892
+INFO : org.zerock.persistence.JDBCTests_DriverSpy - select sysdate from dual: 2023-02-25 21:28:01
+select sysdate from dual: 2023-02-25 21:28:01
 ```
