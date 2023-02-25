@@ -252,3 +252,13 @@ INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1560406561
 <context:component-scan base-package="org.zerock.sample"></context:component-scan>
 ```
 Restart STS.exe
+
+<span style="color:red">
+```
+INFO : org.zerock.persistence.TimeMapperTests - com.sun.proxy.$Proxy26
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.ibatis.reflection.Reflector (file:/C:/Users/iamsu/.m2/repository/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar) to method java.lang.String.value()
+```
+</span>
+https://github.com/mybatis/mybatis-3/issues/1156
+https://sillutt.tistory.com/entry/Mybatis-WARNING-An-illegal-reflective-access-operation-has-occurred	
