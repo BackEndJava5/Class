@@ -10,10 +10,12 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName"
-			value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="jdbcUrl"
-			value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> 
+			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"></property> 
+        -->
+
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
 		<property name="username" value="C##book_ex"></property>
 		<property name="password" value="oracle"></property>
 	</bean>
@@ -28,8 +30,10 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
-	<mybatis-spring:scan base-package="org.zerock.mapper"/>
 
-	<context:component-scan base-package="org.zerock.sample"></context:component-scan>
+	<mybatis-spring:scan
+		base-package="org.zerock.mapper" />
+
+	<context:component-scan
+		base-package="org.zerock.sample"></context:component-scan>
 </beans>
