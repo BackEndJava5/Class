@@ -198,7 +198,7 @@ INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1099694603
 INFO : org.zerock.persistence.DataSourceTests - org.apache.ibatis.session.defaults.DefaultSqlSession@6e8a9c30
 INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1560406561 wrapping oracle.jdbc.driver.T4CConnection@d0ec63
 ```
-### 4.2 스프링과의 연동 
+### 4.2 스프링과의 연동 처리
 - root-context.xml namespaces tab 에 mybatis-spring 없는 경우 pom.xml 에 프레임워크, 라이브러리 추가가 필요, STS restart 해야 보임 https://hillier.tistory.com/26
 ```
 INFO : org.zerock.persistence.TimeMapperTests - com.sun.proxy.$Proxy26
