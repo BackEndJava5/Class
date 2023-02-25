@@ -263,4 +263,13 @@ https://sillutt.tistory.com/entry/Mybatis-WARNING-An-illegal-reflective-access-o
 Restart STS.exe
 
 ```
-
+INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+WARN : com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : org.zerock.persistence.TimeMapperTests - com.sun.proxy.$Proxy25
+INFO : org.zerock.persistence.TimeMapperTests - 2023-02-25 20:00:59
+INFO : org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@1e0b4072: startup date [Sat Feb 25 20:00:58 KST 2023]; root of context hierarchy
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+```
