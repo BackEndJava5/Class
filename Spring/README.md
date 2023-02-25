@@ -138,6 +138,7 @@ INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 ```
 ## 04 MyBatis와 스프링 연동
+### 4.1 MyBatis
 - https://mybatis.org/spring/ko/factorybean.html
 - https://mvnrepository.com
 - pom.xml https://mvnrepository.com/artifact/org.mybatis/mybatis/3.4.6
@@ -197,4 +198,78 @@ INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1099694603
 INFO : org.zerock.persistence.DataSourceTests - org.apache.ibatis.session.defaults.DefaultSqlSession@6e8a9c30
 INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1560406561 wrapping oracle.jdbc.driver.T4CConnection@d0ec63
 ```
+### 4.2 스프링과의 연동 처리
+- root-context.xml namespaces tab 에 mybatis-spring 없는 경우 pom.xml 에 프레임워크, 라이브러리 추가가 필요, STS restart 해야 보임 https://hillier.tistory.com/26
+```
+INFO : org.zerock.persistence.TimeMapperTests - com.sun.proxy.$Proxy26
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.ibatis.reflection.Reflector (file:/C:/Users/iamsu/.m2/repository/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar) to method java.lang.String.value()
+```
+https://github.com/mybatis/mybatis-3/issues/1156
+https://sillutt.tistory.com/entry/Mybatis-WARNING-An-illegal-reflective-access-operation-has-occurred	
 
+
+- pom.xml ( mybatis-3.4.6 -> mybatis-3.5.3 으로 수정 )
+```
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+```		
+- root-context.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+...
+<bean id="sqlSessionFactory"
+	class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"></property>
+</bean>
+
+<mybatis-spring:scan base-package="org.zerock.mapper"/>
+
+<context:component-scan base-package="org.zerock.sample"></context:component-scan>
+```
+Restart STS.exe
+
+```
+INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+WARN : com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : org.zerock.persistence.TimeMapperTests - com.sun.proxy.$Proxy25
+INFO : org.zerock.persistence.TimeMapperTests - 2023-02-25 20:00:59
+INFO : org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@1e0b4072: startup date [Sat Feb 25 20:00:58 KST 2023]; root of context hierarchy
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+```
