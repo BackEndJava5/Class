@@ -200,13 +200,22 @@ INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1560406561
 ```
 ### 4.2 스프링과의 연동 
 - root-context.xml namespaces tab 에 mybatis-spring 없는 경우 pom.xml 에 프레임워크, 라이브러리 추가가 필요, STS restart 해야 보임 https://hillier.tistory.com/26
-- pom.xml
+```
+INFO : org.zerock.persistence.TimeMapperTests - com.sun.proxy.$Proxy26
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.ibatis.reflection.Reflector (file:/C:/Users/iamsu/.m2/repository/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar) to method java.lang.String.value()
+```
+https://github.com/mybatis/mybatis-3/issues/1156
+https://sillutt.tistory.com/entry/Mybatis-WARNING-An-illegal-reflective-access-operation-has-occurred	
+
+
+- pom.xml ( mybatis-3.4.6 -> mybatis-3.5.3 으로 수정 )
 ```
 <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.4.6</version>
+			<version>3.5.3</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
@@ -254,9 +263,4 @@ INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1560406561
 Restart STS.exe
 
 ```
-INFO : org.zerock.persistence.TimeMapperTests - com.sun.proxy.$Proxy26
-WARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.apache.ibatis.reflection.Reflector (file:/C:/Users/iamsu/.m2/repository/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar) to method java.lang.String.value()
-```
-https://github.com/mybatis/mybatis-3/issues/1156
-https://sillutt.tistory.com/entry/Mybatis-WARNING-An-illegal-reflective-access-operation-has-occurred	
+
