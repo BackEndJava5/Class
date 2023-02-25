@@ -240,5 +240,15 @@ INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1560406561
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+...
+<bean id="sqlSessionFactory"
+	class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"></property>
+</bean>
+
+<mybatis-spring:scan base-package="org.zerock.mapper"/>
+
+<context:component-scan base-package="org.zerock.sample"></context:component-scan>
 ```
 Restart STS.exe
