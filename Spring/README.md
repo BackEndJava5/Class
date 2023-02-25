@@ -1,4 +1,4 @@
-# Part1 스프링 개발 환경 
+# Part1 스프링 개발 환경 구축( 완료 )
 ## 01 개발을 위한 준비
 - STS 4 버전부터는 스프링 레거시 프로젝트 생성이 안 되고 스프링 부트만 생성 가능하기 때문에, 스프링 레거시 프로젝트를 생성하기 위해서는 STS 3 버전을 사용해야 합니다.
 - 이클립스 마켓플레이스에서 STS3 플러그인 지원이 안 되는 버전이라면 STS를 별도로 설치해야 합니다. 
@@ -327,3 +327,5 @@ net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1654a892
 INFO : org.zerock.persistence.JDBCTests_DriverSpy - select sysdate from dual: 2023-02-25 21:28:01
 select sysdate from dual: 2023-02-25 21:28:01
 ```
+# Part2 스프링 MVC 설정
+## 05 스프링 MVC의 기본 구조
