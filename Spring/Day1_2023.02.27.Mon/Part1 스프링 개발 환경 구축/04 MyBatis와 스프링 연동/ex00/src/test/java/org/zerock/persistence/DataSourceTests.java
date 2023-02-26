@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //location 속성 경로에 있는 xml 파일을 이용해서 스프링이 로딩됨
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/**/root-context.xml")
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 //Java 설정을 사용하는 경우
 //@ContextConfiguration(classes= {RootConfig.class})
 @Log4j
@@ -34,7 +34,9 @@ public class DataSourceTests {
 	@Test
 	public void testMyBatis() {
 
-		try (SqlSession session = sqlSessionFactory.openSession(); Connection con = session.getConnection();) {
+		try (SqlSession session = sqlSessionFactory.openSession(); 
+		Connection con = session.getConnection();
+		) {
 
 			log.info(session);
 			log.info(con);
