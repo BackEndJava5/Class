@@ -421,3 +421,15 @@ INFO : org.zerock.controller.SampleController - todo: TodoDTO(title=test, dueDat
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 INFO : org.zerock.controller.SampleController - todo: TodoDTO(title=test, dueDate=Mon Jan 01 00:00:00 KST 2018)
 ```
+## 6.4 Model이라는 데이터 전달자
+### 6.4.1 @ModelAttribute 어노테이션
+- http://localhost:8088/sample/ex04?name=aaa&age=11&page=9
+```
+SAMPLEDTO SampleDTO(name=aaa, age=11)
+PAGE 9
+```
+```
+INFO : org.zerock.controller.SampleController - dto: SampleDTO(name=aaa, age=11)
+INFO : org.zerock.controller.SampleController - page: 9
+```
+
