@@ -401,6 +401,11 @@ INFO : org.zerock.controller.SampleController - age: 10
 ```
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
-INFO : org.zerock.controller.SampleController - ids: [111, 222, 333]
-	
+INFO : org.zerock.controller.SampleController - ids: [111, 222, 333]	
+```
+### 6.3.3. 객체 리스트
+- Bad request http://localhost:8088/sample/ex02Bean?list[0].name=aaa&list[2].name=bbb
+- http://localhost:8088/sample/ex02Bean?list%5B0%5D.name=aaa&list%5B2%5D.name=bbb
+```
+INFO : org.zerock.controller.SampleController - list dtos: SampleDTOList(list=[SampleDTO(name=aaa, age=0), SampleDTO(name=null, age=0), SampleDTO(name=bbb, age=0)])
 ```
