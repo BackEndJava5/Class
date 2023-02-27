@@ -336,3 +336,20 @@ select sysdate from dual: 2023-02-25 21:28:01
 ```
 # Part2 스프링 MVC 설정
 ## 05 스프링 MVC의 기본 구조
+- Can not find the tag library descriptor for "http://java.sun.com/jsp/jstl/ core" https://freehoon.tistory.com/78
+- pom.xml
+```
+<dependency>
+  <groupId>jstl</groupId>
+  <artifactId>jstl</artifactId>
+  <version>1.2</version>
+  <scope>compile</scope>
+</dependency>
+<dependency>
+  <groupId>taglibs</groupId>
+  <artifactId>standard</artifactId>
+  <version>1.1.2</version>
+  <scope>compile</scope>
+</dependency>
+```
+추가 해주니 문제가 해결됐다. 추가해 줬던 코드를 다시 지워보았다. 더이상 빨간 줄이 생기지 않는다.
