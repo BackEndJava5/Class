@@ -374,12 +374,23 @@ INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/basicOnlyGet],methods=[GET]}" onto public void org.zerock.controller.SampleController.basicGet2()
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/basic],methods=[GET || POST]}" onto public void org.zerock.controller.SampleController.basicGet()
 ```
-### 6.3 Controller의 파라미터 
-
+### 6.3 Controller의 파라미터 수집
+- http://localhost:8088/sample/ex01?name=AAA&age=10
 ```
 파일 [/WEB-INF/views/ex01.jsp]을(를) 찾을 수 없습니다.
 ```
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 INFO : org.zerock.controller.SampleController - SampleDTO(name=AAA, age=10)
+```
+### 6.3.1 파라미터의 수집과 변환
+- http://localhost:8088/sample/ex01?name=AAA&age=10
+```
+시지 파일 [/WEB-INF/views/ex02.jsp]을(를) 찾을 수 없습니다.
+```
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : org.zerock.controller.SampleController - SampleDTO(name=AAA, age=10)
+INFO : org.zerock.controller.SampleController - name: AAA
+INFO : org.zerock.controller.SampleController - age: 10
 ```
