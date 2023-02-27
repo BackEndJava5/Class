@@ -415,3 +415,9 @@ INFO : org.zerock.controller.SampleController - list dtos: SampleDTOList(list=[S
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 INFO : org.zerock.controller.SampleController - todo: TodoDTO(title=test, dueDate=Mon Jan 01 00:00:00 KST 2018)
 ```
+### 6.3.5 @DateTimeFormat
+- http://localhost:8088/sample/ex03?title=test&dueDate=2018/01/01
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : org.zerock.controller.SampleController - todo: TodoDTO(title=test, dueDate=Mon Jan 01 00:00:00 KST 2018)
+```
