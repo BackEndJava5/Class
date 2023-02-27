@@ -353,3 +353,12 @@ select sysdate from dual: 2023-02-25 21:28:01
 </dependency>
 ```
 추가 해주니 문제가 해결됐다. 추가해 줬던 코드를 다시 지워보았다. 더이상 빨간 줄이 생기지 않는다.
+
+- jex01
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+```
+```
+Hello world!
+The time on the server is 2023? 2? 28? ?? 12? 51? 29? KST.
+```
