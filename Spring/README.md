@@ -1,3 +1,6 @@
+- 이클립스 최신버전(2022-03 (4.23.0)) 이상 에서는 STS(Spring Tool Suite)를 설치해도 Spring 프로젝트가 생성되지 않습니다.
+정확히는 **이클립스 2021-03 (4.19.0)** 까지만 Spring Legacy Project를 생성할 수 있습니다
+
 ### 코배스(개정판)- 2022년 6월 이클립스 메이븐환경 소스코드 
 - https://cafe.naver.com/gugucoding?iframe_url_utf8=%2FArticleRead.nhn%253Fclubid%3D28363273%2526menuid%3D28%2526boardtype%3DL%2526page%3D1%2526specialmenutype%3D%2526userDisplay%3D15%2526articleid%3D7819
 
