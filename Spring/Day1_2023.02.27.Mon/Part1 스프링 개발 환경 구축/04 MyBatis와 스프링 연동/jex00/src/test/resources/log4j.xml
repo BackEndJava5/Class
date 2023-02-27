@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="org.zerock.contorller">
+	<logger name="org.zerock.controller">
 		<level value="info" />
 	</logger>
 	
