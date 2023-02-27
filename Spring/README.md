@@ -375,3 +375,11 @@ INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/basic],methods=[GET || POST]}" onto public void org.zerock.controller.SampleController.basicGet()
 ```
 ### 6.3 Controller의 파라미터 
+
+```
+파일 [/WEB-INF/views/ex01.jsp]을(를) 찾을 수 없습니다.
+```
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : org.zerock.controller.SampleController - SampleDTO(name=AAA, age=10)
+```
