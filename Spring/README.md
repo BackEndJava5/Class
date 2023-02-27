@@ -384,7 +384,7 @@ INFO : org.zerock.controller.HomeController - Welcome home! The client locale is
 INFO : org.zerock.controller.SampleController - SampleDTO(name=AAA, age=10)
 ```
 ### 6.3.1 파라미터의 수집과 변환
-- http://localhost:8088/sample/ex01?name=AAA&age=10
+- http://localhost:8088/sample/ex02?name=AAA&age=10
 ```
 시지 파일 [/WEB-INF/views/ex02.jsp]을(를) 찾을 수 없습니다.
 ```
