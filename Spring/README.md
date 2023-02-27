@@ -368,4 +368,10 @@ The time on the server is 2023? 2? 28? ?? 12? 51? 29? KST.
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String org.zerock.controller.HomeController.home(java.util.Locale,org.springframework.ui.Model)
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/*]}" onto public void org.zerock.controller.SampleController.basic()
 ```
-
+### 6.2  @RequestMapping의 변화 ( basic() + basicGet(), basicGet2() ) 
+```
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/*]}" onto public void org.zerock.controller.SampleController.basic()
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/basicOnlyGet],methods=[GET]}" onto public void org.zerock.controller.SampleController.basicGet2()
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/basic],methods=[GET || POST]}" onto public void org.zerock.controller.SampleController.basicGet()
+```
+### 6.3 Controller의 파라미터 
