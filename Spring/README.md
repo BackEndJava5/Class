@@ -365,12 +365,7 @@ The time on the server is 2023? 2? 28? ?? 12? 51? 29? KST.
 ## 06 스프링 MVC의 Controller
 ### 6.1 @Controller, @RequestMapping(page 128)
 ```
-DEBUG: org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping'
-DEBUG: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Looking for request mappings in application context: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Feb 28 01:09:18 KST 2023]; parent: Root WebApplicationContext
-DEBUG: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 request handler methods found on class org.zerock.controller.HomeController: {public java.lang.String org.zerock.controller.HomeController.home(java.util.Locale,org.springframework.ui.Model)={[/],methods=[GET]}}
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String org.zerock.controller.HomeController.home(java.util.Locale,org.springframework.ui.Model)
-DEBUG: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 request handler methods found on class org.zerock.controller.SampleController: {public void org.zerock.controller.SampleController.basic()={[/sample/*]}}
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/*]}" onto public void org.zerock.controller.SampleController.basic()
-DEBUG: org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping'
 ```
 
