@@ -394,3 +394,13 @@ INFO : org.zerock.controller.SampleController - SampleDTO(name=AAA, age=10)
 INFO : org.zerock.controller.SampleController - name: AAA
 INFO : org.zerock.controller.SampleController - age: 10
 ```
+### 6.3.2 리스트, 배열 처리
+- http://localhost:8088/sample/ex02List?ids=111&ids=222&ids=333
+```
+메시지 파일 [/WEB-INF/views/ex02List.jsp]을(를) 찾을 수 없습니다.
+```
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : org.zerock.controller.SampleController - ids: [111, 222, 333]
+	
+```
