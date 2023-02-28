@@ -523,4 +523,10 @@ org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(I
 ERROR: org.zerock.exception.CommonExceptionAdvice - {exception=org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
 Field error in object 'sampleDTO' on field 'age': rejected value [bbb]; codes [typeMismatch.sampleDTO.age,typeMismatch.age,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [sampleDTO.age,age]; arguments []; default message [age]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'age'; nested exception is java.lang.NumberFormatException: For input string: "bbb"]}
 ```
-	
+- page 158 Java 설정을 이용하는 경우(jex01)
+- @Log4j에 빨간 줄 https://stage-diary.tistory.com/532
+```
+<!--
+    이 부분을 삭제해 주자 <scope>runtime</scope>
+    -->
+```
