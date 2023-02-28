@@ -375,7 +375,7 @@ INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sample/basic],methods=[GET || POST]}" onto public void org.zerock.controller.SampleController.basicGet()
 ```
 ### 6.3 Controller의 파라미터 수집
-- http://localhost:8088/sample/ex01?name=AAA&age=10
+- http://localhost:8080/sample/ex01?name=AAA&age=10
 ```
 파일 [/WEB-INF/views/ex01.jsp]을(를) 찾을 수 없습니다.
 ```
@@ -384,7 +384,7 @@ INFO : org.zerock.controller.HomeController - Welcome home! The client locale is
 INFO : org.zerock.controller.SampleController - SampleDTO(name=AAA, age=10)
 ```
 ### 6.3.1 파라미터의 수집과 변환
-- http://localhost:8088/sample/ex02?name=AAA&age=10
+- http://localhost:8080/sample/ex02?name=AAA&age=10
 ```
 시지 파일 [/WEB-INF/views/ex02.jsp]을(를) 찾을 수 없습니다.
 ```
@@ -395,7 +395,7 @@ INFO : org.zerock.controller.SampleController - name: AAA
 INFO : org.zerock.controller.SampleController - age: 10
 ```
 ### 6.3.2 리스트, 배열 처리
-- http://localhost:8088/sample/ex02List?ids=111&ids=222&ids=333
+- http://localhost:8080/sample/ex02List?ids=111&ids=222&ids=333
 ```
 메시지 파일 [/WEB-INF/views/ex02List.jsp]을(를) 찾을 수 없습니다.
 ```
@@ -405,25 +405,25 @@ INFO : org.zerock.controller.SampleController - ids: [111, 222, 333]
 ```
 ### 6.3.3 객체 리스트
 - Bad request http://localhost:8088/sample/ex02Bean?list[0].name=aaa&list[2].name=bbb
-- http://localhost:8088/sample/ex02Bean?list%5B0%5D.name=aaa&list%5B2%5D.name=bbb
+- http://localhost:8080/sample/ex02Bean?list%5B0%5D.name=aaa&list%5B2%5D.name=bbb
 ```
 INFO : org.zerock.controller.SampleController - list dtos: SampleDTOList(list=[SampleDTO(name=aaa, age=0), SampleDTO(name=null, age=0), SampleDTO(name=bbb, age=0)])
 ```
 ### 6.3.4 @InitBinder
-- http://localhost:8088/sample/ex03?title=test&dueDate=2018-01-01	
+- http://localhost:8080/sample/ex03?title=test&dueDate=2018-01-01	
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 INFO : org.zerock.controller.SampleController - todo: TodoDTO(title=test, dueDate=Mon Jan 01 00:00:00 KST 2018)
 ```
 ### 6.3.5 @DateTimeFormat
-- http://localhost:8088/sample/ex03?title=test&dueDate=2018/01/01
+- http://localhost:8080/sample/ex03?title=test&dueDate=2018/01/01
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 INFO : org.zerock.controller.SampleController - todo: TodoDTO(title=test, dueDate=Mon Jan 01 00:00:00 KST 2018)
 ```
 ## 6.4 Model이라는 데이터 전달자
 ### 6.4.1 @ModelAttribute 어노테이션
-- http://localhost:8088/sample/ex04?name=aaa&age=11&page=9
+- http://localhost:8080/sample/ex04?name=aaa&age=11&page=9
 ```
 SAMPLEDTO SampleDTO(name=aaa, age=11)
 PAGE 9
@@ -433,7 +433,7 @@ INFO : org.zerock.controller.SampleController - dto: SampleDTO(name=aaa, age=11)
 INFO : org.zerock.controller.SampleController - page: 9
 ```
 6.5.1 void 타입
-- http://localhost:8088/sample/ex05
+- http://localhost:8080/sample/ex05
 ```
 파일 [/WEB-INF/views/sample/ex05.jsp]을(를) 찾을 수 없습니다.
 ```
@@ -442,7 +442,7 @@ INFO : org.zerock.controller.SampleController - /ex05..........
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 ```
 6.5.3 객체 타입
-- http://localhost:8088/sample/ex06
+- http://localhost:8080/sample/ex06
 ```
 {"name":"홍길동","age":10}
 ```
@@ -450,19 +450,31 @@ INFO : org.zerock.controller.HomeController - Welcome home! The client locale is
 INFO : org.zerock.controller.SampleController - /ex06..........
 ```
 6.5.4 ResponseEntity 타입
-- http://localhost:8088/sample/ex07
+- http://localhost:8080/sample/ex07
 ```
 {"name": "홍길동"}
 개발자 도구
 요청 URL: http://localhost:8088/sample/ex07
 요청 메서드: GET
 상태 코드: 200 
-원격 주소: [::1]:8088
+원격 주소: [::1]:8080
 리퍼러 정책: strict-origin-when-cross-origin
 ```
 ```
 INFO : org.zerock.controller.SampleController - /ex07..........
 ```
 6.5.5 파일 업로드 처리
-- http://localhost:8088/sample/ex08/exUpload
+- http://localhost:8080/sample/exUpload
+```
+선택된 파일 없음
+선택된 파일 없음
+선택된 파일 없음
+선택된 파일 없음
+선택된 파일 없음
+```
+```
+INFO : org.zerock.controller.SampleController - basic...................
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+```
+
 	
