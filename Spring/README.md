@@ -377,7 +377,7 @@ INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 ### 6.3 Controller의 파라미터 수집
 - http://localhost:8080/sample/ex01?name=AAA&age=10
 ```
-파일 [/WEB-INF/views/ex01.jsp]을(를) 찾을 수 없습니다.
+메시지 파일 [/WEB-INF/views/ex01.jsp]을(를) 찾을 수 없습니다.
 ```
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
@@ -386,7 +386,7 @@ INFO : org.zerock.controller.SampleController - SampleDTO(name=AAA, age=10)
 ### 6.3.1 파라미터의 수집과 변환
 - http://localhost:8080/sample/ex02?name=AAA&age=10
 ```
-시지 파일 [/WEB-INF/views/ex02.jsp]을(를) 찾을 수 없습니다.
+메시지  파일 [/WEB-INF/views/ex02.jsp]을(를) 찾을 수 없습니다.
 ```
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
@@ -435,7 +435,7 @@ INFO : org.zerock.controller.SampleController - page: 9
 6.5.1 void 타입
 - http://localhost:8080/sample/ex05
 ```
-파일 [/WEB-INF/views/sample/ex05.jsp]을(를) 찾을 수 없습니다.
+메시지 파일 [/WEB-INF/views/sample/ex05.jsp]을(를) 찾을 수 없습니다.
 ```
 ```
 INFO : org.zerock.controller.SampleController - /ex05..........
@@ -479,7 +479,7 @@ INFO : org.zerock.controller.HomeController - Welcome home! The client locale is
 - 파일 선택 > 제출 후 
 - http://localhost:8080/sample/exUploadPost
 ```
-파일 [/WEB-INF/views/sample/exUploadPost.jsp]을(를) 찾을 수 없습니다.
+메시지 파일 [/WEB-INF/views/sample/exUploadPost.jsp]을(를) 찾을 수 없습니다.
 ```
 ```
 INFO : org.zerock.controller.SampleController - /exUpload..........
