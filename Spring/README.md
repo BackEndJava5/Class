@@ -510,6 +510,7 @@ INFO : org.zerock.controller.HomeController - Welcome home! The client locale is
 - C:\upload\tmp 가 생성됨
 	
 6.6 Controller의 Exception 
+- Java 설정을 이용하는 경우(jex01, page 158) 에도 동일 결과임.
 - http://localhost:8088/sample/ex04?name=aaa&age=bbb&page=9
 ```
 org.springframework.validation.BeanPropertyBindingResult: 1 errors Field error in object 'sampleDTO' on field 'age': rejected value [bbb]; codes [typeMismatch.sampleDTO.age,typeMismatch.age,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [sampleDTO.age,age]; arguments []; default message [age]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'age'; nested exception is java.lang.NumberFormatException: For input string: "bbb"]
@@ -533,3 +534,4 @@ Field error in object 'sampleDTO' on field 'age': rejected value [bbb]; codes [t
 			<!-- <scope>runtime</scope> --> 이 부분 
 		</dependency>
 ```
+6.6.2 404 에러 
