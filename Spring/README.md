@@ -476,5 +476,28 @@ INFO : org.zerock.controller.SampleController - /ex07..........
 INFO : org.zerock.controller.SampleController - basic...................
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 ```
+- 파일 선택 > 제출 후 
+- http://localhost:8080/sample/exUploadPost
+```
+파일 [/WEB-INF/views/sample/exUploadPost.jsp]을(를) 찾을 수 없습니다.
+```
+```
+INFO : org.zerock.controller.SampleController - /exUpload..........
+INFO : org.zerock.controller.SampleController - ----------------------------------
+INFO : org.zerock.controller.SampleController - name:ex07.PNG
+INFO : org.zerock.controller.SampleController - size:19508
+INFO : org.zerock.controller.SampleController - ----------------------------------
+INFO : org.zerock.controller.SampleController - name:ex07.PNG
+INFO : org.zerock.controller.SampleController - size:19508
+INFO : org.zerock.controller.SampleController - ----------------------------------
+INFO : org.zerock.controller.SampleController - name:ex07.PNG
+INFO : org.zerock.controller.SampleController - size:19508
+INFO : org.zerock.controller.SampleController - ----------------------------------
+INFO : org.zerock.controller.SampleController - name:ex07.PNG
+INFO : org.zerock.controller.SampleController - size:19508
+INFO : org.zerock.controller.SampleController - ----------------------------------
+INFO : org.zerock.controller.SampleController - name:ex07.PNG
+INFO : org.zerock.controller.SampleController - size:19508
+````
 
 	
