@@ -441,7 +441,7 @@ INFO : org.zerock.controller.SampleController - page: 9
 INFO : org.zerock.controller.SampleController - /ex05..........
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 ```
-6.5.2 String 타입
+6.5.3 객체 타입
 - http://localhost:8088/sample/ex06
 ```
 {"name":"홍길동","age":10}
