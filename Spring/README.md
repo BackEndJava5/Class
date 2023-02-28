@@ -563,3 +563,4 @@ ERROR: org.zerock.exception.CommonExceptionAdvice - {exception=org.springframewo
 ```
 # Part3 기본적인 웹 게시물 관리
 ## 07 스프링 MVC 프로젝트의 기본 
+### 7.3.1 pom.xml 의 수정
