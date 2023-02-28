@@ -334,7 +334,7 @@ net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1654a892
 INFO : org.zerock.persistence.JDBCTests_DriverSpy - select sysdate from dual: 2023-02-25 21:28:01
 select sysdate from dual: 2023-02-25 21:28:01
 ```
-# Part2 스프링 MVC 설정
+# Part2 스프링 MVC 설정( 완료 )
 ## 05 스프링 MVC의 기본 구조
 - Can not find the tag library descriptor for "http://java.sun.com/jsp/jstl/ core" https://freehoon.tistory.com/78
 - pom.xml
@@ -546,4 +546,20 @@ HTTP 상태 404 – 찾을 수 없음
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 WARN : org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/nopage] in DispatcherServlet with name 'appServlet'
 ```
-
+- Java 설정을 이용하는 경우(jex01, page 161)
+```
+No handler found for GET /nopage
+org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1210)
+org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:966)
+org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866)
+```
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+WARN : org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/nopage] in DispatcherServlet with name 'dispatcher'
+ERROR: org.zerock.exception.CommonExceptionAdvice - Exception .......No handler found for GET /nopage
+ERROR: org.zerock.exception.CommonExceptionAdvice - {exception=org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /nopage}
+```
+# Part3 기본적인 웹 게시물 관리
+## 07 스프링 MVC 프로젝트의 기본 
