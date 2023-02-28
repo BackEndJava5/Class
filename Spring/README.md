@@ -510,5 +510,17 @@ INFO : org.zerock.controller.HomeController - Welcome home! The client locale is
 - C:\upload\tmp 가 생성됨
 	
 6.6 Controller의 Exception 
-
+- http://localhost:8088/sample/ex04?name=aaa&age=bbb&page=9
+```
+org.springframework.validation.BeanPropertyBindingResult: 1 errors Field error in object 'sampleDTO' on field 'age': rejected value [bbb]; codes [typeMismatch.sampleDTO.age,typeMismatch.age,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [sampleDTO.age,age]; arguments []; default message [age]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'age'; nested exception is java.lang.NumberFormatException: For input string: "bbb"]
+org.springframework.web.method.annotation.ModelAttributeMethodProcessor.resolveArgument(ModelAttributeMethodProcessor.java:157)
+org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:124)
+org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:161)
+org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:131)
+```
+```
+[org.springframework.context.support.DefaultMessageSourceResolvable: codes [sampleDTO.age,age]; arguments []; default message [age]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'age'; nested exception is java.lang.NumberFormatException: For input string: "bbb"]
+ERROR: org.zerock.exception.CommonExceptionAdvice - {exception=org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'sampleDTO' on field 'age': rejected value [bbb]; codes [typeMismatch.sampleDTO.age,typeMismatch.age,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [sampleDTO.age,age]; arguments []; default message [age]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'age'; nested exception is java.lang.NumberFormatException: For input string: "bbb"]}
+```
 	
