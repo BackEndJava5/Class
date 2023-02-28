@@ -526,7 +526,10 @@ Field error in object 'sampleDTO' on field 'age': rejected value [bbb]; codes [t
 - page 158 Java 설정을 이용하는 경우(jex01)
 - @Log4j에 빨간 줄 https://stage-diary.tistory.com/532
 ```
-<!--
-    이 부분을 삭제해 주자 <scope>runtime</scope>
-    -->
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<!-- <scope>runtime</scope> --> 이 부분 
+		</dependency>
 ```
