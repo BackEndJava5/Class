@@ -499,5 +499,16 @@ INFO : org.zerock.controller.SampleController - --------------------------------
 INFO : org.zerock.controller.SampleController - name:ex07.PNG
 INFO : org.zerock.controller.SampleController - size:19508
 ````
+- page 153 Java 설정을 이용하는 경우(jex01 > Run As > Run on Server 클릭시 자동으로 http://localhost:8080/controller/ load 됨)
+```
+Hello world!
+The time on the server is 2023? 2? 28? ?? 1? 7? 42? KST.
+```
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+```
+- C:\upload\tmp 가 생성됨
+	
+6.6 Controller의 Exception 
 
 	
