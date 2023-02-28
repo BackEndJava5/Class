@@ -535,3 +535,15 @@ Field error in object 'sampleDTO' on field 'age': rejected value [bbb]; codes [t
 		</dependency>
 ```
 6.6.2 404 에러 
+- http://localhost:8088/nopage
+```
+HTTP 상태 404 – 찾을 수 없음
+타입 상태 보고
+
+설명 Origin 서버가 대상 리소스를 위한 현재의 representation을 찾지 못했거나, 그것이 존재하는지를 밝히려 하지 않습니다.
+```
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+WARN : org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/nopage] in DispatcherServlet with name 'appServlet'
+```
+
