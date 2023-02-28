@@ -433,6 +433,7 @@ INFO : org.zerock.controller.SampleController - dto: SampleDTO(name=aaa, age=11)
 INFO : org.zerock.controller.SampleController - page: 9
 ```
 6.5.1 void 타입
+- http://localhost:8088/sample/ex05
 ```
 파일 [/WEB-INF/views/sample/ex05.jsp]을(를) 찾을 수 없습니다.
 ```
@@ -440,3 +441,12 @@ INFO : org.zerock.controller.SampleController - page: 9
 INFO : org.zerock.controller.SampleController - /ex05..........
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
 ```
+6.5.2 String 타입
+- http://localhost:8088/sample/ex06
+```
+{"name":"홍길동","age":10}
+```
+```
+INFO : org.zerock.controller.SampleController - /ex06..........
+```
+	
