@@ -449,4 +449,20 @@ INFO : org.zerock.controller.HomeController - Welcome home! The client locale is
 ```
 INFO : org.zerock.controller.SampleController - /ex06..........
 ```
+6.5.4 ResponseEntity 타입
+- http://localhost:8088/sample/ex07
+```
+{"name": "홍길동"}
+개발자 도구
+요청 URL: http://localhost:8088/sample/ex07
+요청 메서드: GET
+상태 코드: 200 
+원격 주소: [::1]:8088
+리퍼러 정책: strict-origin-when-cross-origin
+```
+```
+INFO : org.zerock.controller.SampleController - /ex07..........
+```
+6.5.5 파일 업로드 처리
+- http://localhost:8088/sample/ex08/exUpload
 	
