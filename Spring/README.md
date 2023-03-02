@@ -593,3 +593,24 @@ insert into tbl_board (bno, title, content, writer)
 values (seq_board.nextval, '테스트 제목', '테스트 내용', 'user00');
 ```
 7.5 Java 설정을 이용하는 경우의 프로젝트 구성(jex02)
+- Run on Server 동작 확인
+
+## 08 영속/비즈니스 계층의 CRUD 구현
+### 8.1 영속 계층의 구현 준비
+```
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : jdbc.sqlonly - select * from tbl_board where bno > 0 
+
+INFO : jdbc.sqltiming - select * from tbl_board where bno > 0 
+ {executed in 147 msec}
+INFO : jdbc.resultsettable - 
+|----|-------|--------|-------|----------------------|----------------------|
+|bno |title  |content |writer |regdate               |updatedate            |
+|----|-------|--------|-------|----------------------|----------------------|
+|1   |테스트 제목 |테스트 내용  |user00 |2023-02-28 17:40:19.0 |2023-02-28 17:40:19.0 |
+|2   |테스트 제목 |테스트 내용  |user00 |2023-02-28 17:42:12.0 |2023-02-28 17:42:12.0 |
+|3   |테스트 제목 |테스트 내용  |user00 |2023-02-28 17:42:14.0 |2023-02-28 17:42:14.0 |
+|4   |테스트 제목 |테스트 내용  |user00 |2023-02-28 17:42:15.0 |2023-02-28 17:42:15.0 |
+|5   |테스트 제목 |테스트 내용  |user00 |2023-02-28 17:42:16.0 |2023-02-28 17:42:16.0 |
+|----|-------|--------|-------|----------------------|----------------------|
+```
