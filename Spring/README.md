@@ -614,3 +614,20 @@ INFO : jdbc.resultsettable -
 |5   |테스트 제목 |테스트 내용  |user00 |2023-02-28 17:42:16.0 |2023-02-28 17:42:16.0 |
 |----|-------|--------|-------|----------------------|----------------------|
 ```
+## 8.2 영속 영역의 CRUD 구현
+### 8.2.1 create(insert) 처리
+```
+INFO : jdbc.sqlonly - insert into tbl_board (bno,title,content, writer) values (54, '새로 작성하는 글 select key', '새로 작성하는 
+내용 select key', 'newbie') 
+
+INFO : jdbc.sqltiming - insert into tbl_board (bno,title,content, writer) values (54, '새로 작성하는 글 select key', '새로 작성하는 
+내용 select key', 'newbie') 
+ {executed in 9 msec}
+INFO : org.zerock.mapper.BoardMapperTests - BoardVO(bno=54, title=새로 작성하는 글 select key, content=새로 작성하는 내용 select key, writer=newbie, regdate=null, updateDate=null)
+INFO : jdbc.sqlonly - insert into tbl_board (bno,title,content,writer) values (seq_board.nextval, '새로 작성하는 글', '새로 
+작성하는 내용', 'newbie') 
+
+INFO : jdbc.sqltiming - insert into tbl_board (bno,title,content,writer) values (seq_board.nextval, '새로 작성하는 글', '새로 
+작성하는 내용', 'newbie') 
+```
+### 8.2.2 read(select) 처리
