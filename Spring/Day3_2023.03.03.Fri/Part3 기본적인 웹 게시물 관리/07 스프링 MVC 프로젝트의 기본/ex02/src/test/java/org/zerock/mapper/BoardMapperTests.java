@@ -28,4 +28,17 @@ public class BoardMapperTests {
 		mapper.getList().forEach(board -> log.info(board));
 
 	}
+
+	@Test
+	public void testInsert() {
+
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 글");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+
+		mapper.insert(board);
+
+		log.info(board);
+	}
 }
