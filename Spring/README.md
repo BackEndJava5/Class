@@ -564,7 +564,15 @@ ERROR: org.zerock.exception.CommonExceptionAdvice - {exception=org.springframewo
 # Part3 기본적인 웹 게시물 관리
 ## 07 스프링 MVC 프로젝트의 기본 
 ### 7.3.1 pom.xml 의 수정
-
+- JDBCTests 와 DataSourceTests 동작 확인
+```
+INFO : org.zerock.persistence.JDBCTests - oracle.jdbc.driver.T4CConnection@6e15fe2
+```
+```
+INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1323676377 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@72f8ae0c
+INFO : org.zerock.persistence.DataSourceTests - org.apache.ibatis.session.defaults.DefaultSqlSession@7f353d99
+INFO : org.zerock.persistence.DataSourceTests - HikariProxyConnection@1179244298 
+```
 ### 7.3.2 테이블 생성과 Dummy(더미) 데이터 생성
 ```
 create sequence seq_board;
@@ -584,3 +592,4 @@ primary key (bno);
 insert into tbl_board (bno, title, content, writer)
 values (seq_board.nextval, '테스트 제목', '테스트 내용', 'user00');
 ```
+7.5 Java 설정을 이용하는 경우의 프로젝트 구성(jex02)
