@@ -237,4 +237,5 @@ INFO : jdbc.sqltiming - delete tbl_board where bno = 5
 ```
 List Page
 ```
-### 11.1.1 SB Admin2 페이지 적용하기
+### 11.1.1 SB Admin2 페이지 적용하기(page 228)
+### 11.1.1 SB Admin2 페이지 적용하기(page 230)
