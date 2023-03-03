@@ -265,6 +265,11 @@ INFO : org.zerock.controller.HomeController - Welcome home! The client locale is
 INFO : org.zerock.controller.BoardController - list
 INFO : org.zerock.controller.BoardController - register: BoardVO(bno=null, title=테스트, content=테스트, writer=user00, regdate=null, updateDate=null)
 ```
+### 11.3.2 재전송(redirect)처리
+### 11.3.3 모달(Modal)창 보여주기
+- 게시물 작성후 모달창 확인
+
+
 
 
 
