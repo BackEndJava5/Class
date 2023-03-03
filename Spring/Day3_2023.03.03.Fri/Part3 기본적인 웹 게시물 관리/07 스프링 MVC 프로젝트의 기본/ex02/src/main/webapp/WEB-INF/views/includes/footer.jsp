@@ -7,7 +7,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery 주석처리 -->
-    <script src="/resources/vendor/jquery/jquery.min.js"></script>
+<!--     <script src="/resources/vendor/jquery/jquery.min.js"></script> -->
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
