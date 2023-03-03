@@ -651,3 +651,14 @@ INFO : jdbc.audit - 1. Connection.clearWarnings() returned
 INFO : org.zerock.mapper.BoardMapperTests - BoardVO(bno=null, title=새로 작성하는 글, content=새로 작성하는 내용, writer=newbie, regdate=null, updateDate=null)
 ```
 ### 8.2.3 delete 처리
+```
+INFO : jdbc.audit - 1. Connection.prepareStatement(delete tbl_board where bno = ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@1015a4b9
+INFO : jdbc.audit - 1. PreparedStatement.setLong(1, 3) returned 
+INFO : jdbc.sqlonly - delete tbl_board where bno = 3 
+
+INFO : jdbc.sqltiming - delete tbl_board where bno = 3 
+ {executed in 7 msec}
+INFO : jdbc.audit - 1. PreparedStatement.execute() returned false
+INFO : jdbc.audit - 1. PreparedStatement.getUpdateCount() ret
+```
+### 8.2.4 update 처리
