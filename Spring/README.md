@@ -683,3 +683,14 @@ INFO : jdbc.audit - 1. PreparedStatement.close() returned
 INFO : org.zerock.service.BoardServiceTests - org.zerock.service.BoardServiceImpl@44032fde
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 ```
+
+### 9.2.1 등록 작업의 구현과 테스트
+```
+INFO : jdbc.sqltiming - insert into tbl_board (bno,title,content, writer) values (66, '새로 작성하는 글', '새로 작성하는 내용', 'newbie') 
+ {executed in 15 msec}
+INFO : jdbc.audit - 1. PreparedStatement.execute() returned false
+INFO : jdbc.audit - 1. PreparedStatement.getUpdateCount() returned 1
+INFO : jdbc.audit - 1. PreparedStatement.close() returned 
+INFO : jdbc.audit - 1. Connection.clearWarnings() returned 
+INFO : org.zerock.service.BoardServiceTests - 생성된 게시물의 번호: 66
+```
