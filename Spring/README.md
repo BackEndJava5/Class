@@ -746,3 +746,14 @@ INFO : org.zerock.service.BoardServiceTests - MODIFY RESULT: true
 INFO : org.zerock.controller.BoardControllerTests - {list=[BoardVO(bno=1, title=제목 수정합니다., content=테스트 내용, writer=user00, regdate=Tue Feb 28 17:40:19 KST 2023, updateDate=Fri Mar 03 10:39:58 KST 2023), BoardVO(bno=4, title=테스트 제목, content=테스트 내용, writer=user00, regdate=Tue Feb 28 17:42:15 KST 2023, updateDate=Tue Feb 28 17:42:15 KST 2023), BoardVO(bno=5, title=수정된 제목, content=수정된 내용, writer=user00, regdate=Tue Feb 28 17:42:16 KST 2023, updateDate=Fri Mar 03 09:56:05 KST 2023), BoardVO(bno=65, title=새로 작성하는 글, content=새로 작성하는 내용, writer=newbie, regdate=Fri Mar 03 09:56:05 KST 2023, updateDate=Fri Mar 03 09:56:05 KST 2023)]}
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 ```
+
+### 10.2.2 등록 처리와 테스트
+```
+INFO : jdbc.resultset - 1. ResultSet.next() returned false
+INFO : jdbc.resultset - 1. ResultSet.close() returned void
+INFO : jdbc.sqlonly - insert into tbl_board (bno,title,content, writer) values (72, '테스트 새글 제목', '테스트 새글 내용', 'user00') 
+
+INFO : jdbc.sqltiming - insert into tbl_board (bno,title,content, writer) values (72, '테스트 새글 제목', '테스트 새글 내용', 'user00') 
+ {executed in 25 msec}
+INFO : org.zerock.controller.BoardControllerTests - redirect:/board/list
+```
