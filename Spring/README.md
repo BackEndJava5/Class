@@ -615,15 +615,29 @@ INFO : jdbc.resultsettable -
 |----|-------|--------|-------|----------------------|----------------------|
 ```
 ## 8.2 영속 영역의 CRUD 구현
+
+- src\test\resources\log4j.xml 에서 log level 을 info로 변경
+```
+<logger name="jdbc.audit">
+	<level value="info" />
+</logger>
+
+<logger name="jdbc.resultset">
+	<level value="info" />
+</logger>
+
+<logger name="jdbc.connection">
+	<level value="info" />
+</logger>
+```
+
 ### 8.2.1 create(insert) 처리
 ```
-INFO : jdbc.sqlonly - insert into tbl_board (bno,title,content, writer) values (54, '새로 작성하는 글 select key', '새로 작성하는 
-내용 select key', 'newbie') 
-
-INFO : jdbc.sqltiming - insert into tbl_board (bno,title,content, writer) values (54, '새로 작성하는 글 select key', '새로 작성하는 
-내용 select key', 'newbie') 
- {executed in 9 msec}
-INFO : org.zerock.mapper.BoardMapperTests - BoardVO(bno=54, title=새로 작성하는 글 select key, content=새로 작성하는 내용 select key, writer=newbie, regdate=null, updateDate=null)
+INFO : jdbc.audit - 1. Connection.prepareStatement(insert into tbl_board (bno,title,content,writer)
+		values (seq_board.nextval, ?, ?, ?)) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@1d901f20
+INFO : jdbc.audit - 1. PreparedStatement.setString(1, "새로 작성하는 글") returned 
+INFO : jdbc.audit - 1. PreparedStatement.setString(2, "새로 작성하는 내용") returned 
+INFO : jdbc.audit - 1. PreparedStatement.setString(3, "newbie") returned 
 INFO : jdbc.sqlonly - insert into tbl_board (bno,title,content,writer) values (seq_board.nextval, '새로 작성하는 글', '새로 
 작성하는 내용', 'newbie') 
 
@@ -631,3 +645,9 @@ INFO : jdbc.sqltiming - insert into tbl_board (bno,title,content,writer) values 
 작성하는 내용', 'newbie') 
 ```
 ### 8.2.2 read(select) 처리
+```
+INFO : jdbc.audit - 1. PreparedStatement.close() returned 
+INFO : jdbc.audit - 1. Connection.clearWarnings() returned 
+INFO : org.zerock.mapper.BoardMapperTests - BoardVO(bno=null, title=새로 작성하는 글, content=새로 작성하는 내용, writer=newbie, regdate=null, updateDate=null)
+```
+### 8.2.3 delete 처리
