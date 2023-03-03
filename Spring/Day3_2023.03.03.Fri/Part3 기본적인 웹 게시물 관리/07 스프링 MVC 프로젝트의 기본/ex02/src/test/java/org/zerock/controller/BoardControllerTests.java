@@ -59,4 +59,11 @@ public class BoardControllerTests {
 		log.info(resultPage);
 
 	}
+
+	@Test
+	public void tetGet() throws Exception {
+
+		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/get").param("bno", "2")).andReturn()
+				.getModelAndView().getModelMap());
+	}
 }
