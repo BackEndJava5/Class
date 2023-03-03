@@ -242,3 +242,7 @@ List Page
 ### 11.1.2 includes 적용(page 232)
 ### 11.1.3 jQuery 라이브러리 변경( page 235)
 - 크롬 > 도구 더보기 > 개발자도구 > toggle device toolbar > 모바일 사이즈 선택
+
+## 11.2 목록 화면 처리
+- 모바일 사이즈로 출력되는지 확인
+
