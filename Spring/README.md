@@ -777,3 +777,4 @@ INFO : jdbc.sqlonly - update tbl_board set title= '수정된 테스트 새글 �
 INFO : jdbc.sqltiming - update tbl_board set title= '수정된 테스트 새글 제목', content='수정된 테스트 새글 내용', writer = 'user00', updateDate 
 = sysdate where bno = 1 
 ```
+### 10.2.5 삭제 처리와 테스트
