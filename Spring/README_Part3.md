@@ -230,11 +230,12 @@ INFO : jdbc.sqltiming - delete tbl_board where bno = 5
 - https://cafe.naver.com/gugucoding
 - SB Admin2 - https://cafe.naver.com/gugucoding?iframe_url_utf8=%2FArticleRead.nhn%253Fclubid%3D28363273%2526page%3D1%2526menuid%3D38%2526boardtype%3DL%2526articleid%3D6570%2526referrerAllArticles%3Dfalse
 
-- server.xml <Context docBase="ex02" path="/controller" />
-  http://localhost:8080/controller/board/list
+- server.xml 
+- <Context docBase="ex02" path="/controller" />
+-- http://localhost:8080/controller/board/list
 
-- server.xml <Context docBase="ex02" path="/controller" />
-  http://localhost:8080/board/list
+- <Context docBase="ex02" path="/controller" />
+--  http://localhost:8080/board/list
 
 ```
 List Page
