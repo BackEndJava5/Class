@@ -277,6 +277,16 @@ INFO : org.zerock.controller.BoardController - register: BoardVO(bno=null, title
 http://localhost:8080/board/get?bno=1 
 
 
+### 11.4.2 목록 페이지와 뒤로 가기 문제
+
+### 11.5 게시물의 수정/삭제 처리
+### 11.5.1 수정/삭제 페이지로 이동
+http://localhost:8080/board/modify?bno=1
+- 상세페이지에서 수정 가능한지 확인
+
+
+
+
 
 
 
