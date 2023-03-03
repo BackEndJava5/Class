@@ -272,6 +272,10 @@ INFO : org.zerock.controller.BoardController - register: BoardVO(bno=null, title
 ### 11.3.4 목록에서 버튼으로 이동하기
 - Register New Board 버튼을 눌러서 Board Register 페이지로 이동하는지 확인
 
+### 11.4.1 조회 페이지 작성
+- 상세페이지와 Modify/List 버튼 확인
+http://localhost:8080/board/get?bno=1 
+
 
 
 

@@ -45,10 +45,10 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 
-	@GetMapping({ "/get", "/modify" })
+	@GetMapping({ "/get" })
 	public void get(@RequestParam("bno") Long bno, Model model) {
 
-		log.info("/get or modify ");
+		log.info("/get");
 		model.addAttribute("board", service.get(bno));
 	}
 
