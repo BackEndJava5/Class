@@ -1,6 +1,6 @@
-# Servlet & JSP Class
+# 함께하는 IT수업 https://cafe.naver.com/itclasswithus
 
-- 함께하는 IT수업 https://cafe.naver.com/itclasswithus
+# Servlet & JSP Class
 
 - Day4 : JDBC DAO/VO Classes
 
