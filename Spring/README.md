@@ -757,3 +757,15 @@ INFO : jdbc.sqltiming - insert into tbl_board (bno,title,content, writer) values
  {executed in 25 msec}
 INFO : org.zerock.controller.BoardControllerTests - redirect:/board/list
 ```
+### 10.2.3 조회 처리와 테스트
+```
+|----|----------|-----------|-------|----------------------|----------------------|
+|bno |title     |content    |writer |regdate               |updatedate            |
+|----|----------|-----------|-------|----------------------|----------------------|
+|2   |새로 작성하는 글 |새로 작성하는 내용 |newbie |2023-03-03 09:56:05.0 |2023-03-03 09:56:05.0 |
+|----|----------|-----------|-------|----------------------|----------------------|
+
+INFO : jdbc.resultset - 1. ResultSet.next() returned false
+INFO : jdbc.resultset - 1. ResultSet.close() returned void
+INFO : org.zerock.controller.BoardControllerTests - {board=BoardVO(bno=2, title=새로 작성하는 글, content=새로 작성하는 내용, writer=newbie, regdate=Fri Mar 03 09:56:05 KST 2023, updateDate=Fri Mar 03 09:56:05 KST 2023), org.springframework.validation.BindingResult.board=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+```
