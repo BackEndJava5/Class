@@ -39,11 +39,11 @@
 	</logger>
 
 	<logger name="jdbc.resultset">
-		<level value="info" />
+		<level value="warn" />
 	</logger>
 
 	<logger name="jdbc.connection">
-		<level value="info" />
+		<level value="warn" />
 	</logger>
 
 	<!-- Root Logger -->

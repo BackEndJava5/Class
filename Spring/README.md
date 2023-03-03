@@ -677,3 +677,9 @@ INFO : jdbc.audit - 1. PreparedStatement.execute() returned false
 INFO : jdbc.audit - 1. PreparedStatement.getUpdateCount() returned 1
 INFO : jdbc.audit - 1. PreparedStatement.close() returned 
 ```
+## 09 비즈니스 계층
+### 9.2 비즈니스 계층의 구현과 테스트
+```
+INFO : org.zerock.service.BoardServiceTests - org.zerock.service.BoardServiceImpl@44032fde
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+```
