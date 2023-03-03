@@ -662,3 +662,18 @@ INFO : jdbc.audit - 1. PreparedStatement.execute() returned false
 INFO : jdbc.audit - 1. PreparedStatement.getUpdateCount() ret
 ```
 ### 8.2.4 update 처리
+```
+INFO : jdbc.sqlonly - update tbl_board set title= '수정된 제목', content='수정된 내용', writer = 'user00', updateDate = sysdate 
+where bno = 5 
+
+INFO : jdbc.connection - 10. Connection opened
+INFO : jdbc.audit - 10. Connection.new Connection returned 
+INFO : jdbc.audit - 10. Connection.setReadOnly(false) returned 
+INFO : jdbc.audit - 10. Connection.setAutoCommit(true) returned 
+INFO : jdbc.sqltiming - update tbl_board set title= '수정된 제목', content='수정된 내용', writer = 'user00', updateDate = sysdate 
+where bno = 5 
+ {executed in 5 msec}
+INFO : jdbc.audit - 1. PreparedStatement.execute() returned false
+INFO : jdbc.audit - 1. PreparedStatement.getUpdateCount() returned 1
+INFO : jdbc.audit - 1. PreparedStatement.close() returned 
+```
