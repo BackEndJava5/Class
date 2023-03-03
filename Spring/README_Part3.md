@@ -251,4 +251,22 @@ List Page
 
 ## 11.3 등록 입력 페이지와 등록 처리
 - http://localhost:8080/board/register
+- 크롬 > 도구 더보기 > 개발자도구 > network -> register > Payload 에서 입력한 한글 확인
+- BoardController에 전달될 때 한글이 깨진 상태인지 확인
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : org.zerock.controller.BoardController - list
+INFO : org.zerock.controller.BoardController - register: BoardVO(bno=null, title=íì¤í¸, content=íì¤í¸, writer=user00, regdate=null, updateDate=null)
+```
+### 11.3.1 한글 문제와 UTF-8 필터 처리
+- 브라우저와 콘솔로그에서 한글이 정상적으로 처리되는지 확인
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : org.zerock.controller.BoardController - list
+INFO : org.zerock.controller.BoardController - register: BoardVO(bno=null, title=테스트, content=테스트, writer=user00, regdate=null, updateDate=null)
+```
+
+
+
+
 
