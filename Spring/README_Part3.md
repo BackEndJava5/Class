@@ -285,6 +285,7 @@ http://localhost:8080/board/modify?bno=1
 - 상세페이지에서 수정 가능한지 확인
 
 ### 11.5.2 게시물 수정/삭제 확인
+http://localhost:8080/board/modify?bno=85
 - 수정
 ```
 INFO : org.zerock.controller.BoardController - modify:BoardVO(bno=85, title=수정테스트, content=수정테스트
@@ -297,7 +298,8 @@ INFO : org.zerock.controller.BoardController - remove...81
 INFO : org.zerock.controller.BoardController - list
 ```
 
-
+### 11.5.3 조회 페이지에서 <form> 처리
+	
 
 
 
