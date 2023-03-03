@@ -723,3 +723,20 @@ INFO : jdbc.resultsettable -
 INFO : jdbc.resultset - 1. ResultSet.next() returned false
 INFO : jdbc.resultset - 1. ResultSet.close() returned void
 ```
+### 9.2.4 삭제/수정 구현과 테스트
+```
+INFO : jdbc.sqlonly - delete tbl_board where bno = 2 
+
+INFO : jdbc.sqltiming - delete tbl_board where bno = 2 
+ {executed in 2 msec}
+INFO : org.zerock.service.BoardServiceTests - REMOVE RESULT: true
+```
+```
+INFO : jdbc.sqlonly - update tbl_board set title= '제목 수정합니다.', content='테스트 내용', writer = 'user00', updateDate = 
+sysdate where bno = 1 
+
+INFO : jdbc.sqltiming - update tbl_board set title= '제목 수정합니다.', content='테스트 내용', writer = 'user00', updateDate = 
+sysdate where bno = 1 
+ {executed in 6 msec}
+INFO : org.zerock.service.BoardServiceTests - MODIFY RESULT: true
+```
