@@ -778,3 +778,22 @@ INFO : jdbc.sqltiming - update tbl_board set title= '수정된 테스트 새글 
 = sysdate where bno = 1 
 ```
 ### 10.2.5 삭제 처리와 테스트
+- .param("bno", "5"))
+```
+INFO : org.zerock.controller.BoardControllerTests - redirect:/board/list
+INFO : org.zerock.controller.BoardController - remove...5
+INFO : org.zerock.service.BoardServiceImpl - remove....5
+INFO : jdbc.sqlonly - delete tbl_board where bno = 5 
+
+INFO : jdbc.sqltiming - delete tbl_board where bno = 5 
+```
+## 11 화면처리
+### 11.1 목록 페이지 작업과 includes
+
+- https://cafe.naver.com/gugucoding
+- SB Admin2 - https://cafe.naver.com/gugucoding?iframe_url_utf8=%2FArticleRead.nhn%253Fclubid%3D28363273%2526page%3D1%2526menuid%3D38%2526boardtype%3DL%2526articleid%3D6570%2526referrerAllArticles%3Dfalse
+
+- http://localhost:8088/controller/board/list
+```
+List Page
+```
