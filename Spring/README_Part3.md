@@ -269,6 +269,8 @@ INFO : org.zerock.controller.BoardController - register: BoardVO(bno=null, title
 ### 11.3.3 모달(Modal)창 보여주기
 - 게시물 작성후 모달창 확인
 
+### 11.3.4 목록에서 버튼으로 이동하기
+- Register New Board 버튼을 눌러서 Board Register 페이지로 이동하는지 확인
 
 
 
