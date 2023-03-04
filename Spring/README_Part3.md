@@ -300,7 +300,20 @@ INFO : org.zerock.controller.BoardController - list
 
 ### 11.5.3 조회 페이지에서 <form> 처리
 	
+# 12 오라클 데이터베이스 페이징 처리
+## 12.1 order by의 문제
+### 12.1.1 실행계획과 order by
 
+- 100만개 데이터 생성
+```
+BEGIN
+FOR i IN 1..10 LOOP
+insert into tbl_board (bno, title, content, writer)
+values (i, '테스트 제목', '테스트 내용', 'user00');
+END LOOP;
+COMMIT;
+END;
+```
 
 
 
