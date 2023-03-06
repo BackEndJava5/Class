@@ -61,7 +61,7 @@ public class BoardControllerTests {
 	}
 
 	@Test
-	public void tetGet() throws Exception {
+	public void testGet() throws Exception {
 
 		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/get")
 				.param("bno", "2"))
