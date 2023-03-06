@@ -450,7 +450,13 @@ INFO : org.zerock.controller.BoardController - list: Criteria(pageNum=1, amount=
 
 ## 14.4 조회 페이지로 이동
 - 특정 게시물 제목을 클릭시 pageNum과 amount 파라미터가 추가로 전달되는 지 확인
-http://localhost:8086/board/get?pageNum=2&amount=10&bno=87
+http://localhost:8080/board/get?pageNum=2&amount=10&bno=87
+
+### 14.4.1 조회 페이지에서 다시 목록 페이지로 이동 - 페이지 번호 유지
+- 조회한 상세 페이지에서 'list'버튼을 눌렀을때 해당하는 페이지로 돌아가는지 확인
+
+
+
 
 
 
