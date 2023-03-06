@@ -304,17 +304,96 @@ INFO : org.zerock.controller.BoardController - list
 ## 12.1 order by의 문제
 ### 12.1.1 실행계획과 order by
 
-- 100만개 데이터 생성
+- 100만개 데이터 생성(page 271)
 ```
 BEGIN
-FOR i IN 1..10 LOOP
+FOR i IN 1..1000000 LOOP
 insert into tbl_board (bno, title, content, writer)
 values (i, '테스트 제목', '테스트 내용', 'user00');
 END LOOP;
 COMMIT;
 END;
 ```
+```
+select * from tbl_board order by bno + 1 desc;
+-> 50개의 행이 인출됨(1.623초)
+```
+```
+select * from tbl_board order by bno  desc;
+-> 50개의 행이 인출됨(0.045초)
+```
+## 12.2 order by 보다는 인덱스
+```
+select 
+/*+ INDEX_DESC(tbl_board pk_board) */
+* 
+from tbl_board where bno > 0;
+-> 50개의 행이 인출됨(0.004초)
+```
+### 12.3.1 인덱스와 오라클 힌트(hint)
+```
+select * from tbl_board order by bno desc;
 
+select /*+ INDEX_DESC(tbl_board pk_board) */* 
+from tbl_board where bno > 0;
+```
+### 12.3.3 FULL 힌트
+```
+select /*+ FULL(tbl_board) */* from tbl_board order by bno desc;
+```
+
+### 12.3.4 INDEX_ASC, INDEX_DESC 힌트
+```
+select /*+ INDEX_ASC(tbl_board pk_board) */* from tbl_board 
+where bno > 0;
+```
+
+## 12.4 ROWNUM과 인라인뷰
+### 12.4.1 인덱스를 이용한 접근 시 ROWNUM
+```
+select /*+ INDEX_ASC(tbl_board pk_board) */
+rownum rn, bno, title, content
+from tbl_board;
+
+select /*+ INDEX_ASC(tbl_board pk_board) */
+rownum rn, bno, title, content
+from tbl_board 
+where bno > 0;
+```
+### 12.4.2 페이지 번호 1, 2의 데이터 
+```
+select /*+ INDEX_ASC(tbl_board pk_board) */
+rownum rn, bno, title, content
+from 
+    tbl_board
+where rownum <= 10;
+
+select /*+ INDEX_ASC(tbl_board pk_board) */
+rownum rn, bno, title, content
+from 
+    tbl_board
+where rownum > 10 and rownum <= 20;
+
+select /*+ INDEX_ASC(tbl_board pk_board) */
+rownum rn, bno, title, content
+from 
+    tbl_board
+where rownum <= 20;
+```
+### 12.4.3 인라인뷰(In-line View) 처리
+```
+select
+bno, title, content
+from
+    (
+        select /*+ INDEX_ASC(tbl_board pk_board) */
+        rownum rn, bno, title, content
+        from 
+            tbl_board
+        where rownum <= 20
+    )
+where rn > 10;
+```
 
 
 
