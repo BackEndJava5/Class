@@ -448,6 +448,10 @@ INFO : org.zerock.controller.BoardController - list: Criteria(pageNum=1, amount=
 ### 14.3.1 페이지 번호 이벤트 처리
 - 페이지 번호를 클릭시 정상적으로 이동하는지 확인
 
+## 14.4 조회 페이지로 이동
+- 특정 게시물 제목을 클릭시 pageNum과 amount 파라미터가 추가로 전달되는 지 확인
+http://localhost:8086/board/get?pageNum=2&amount=10&bno=87
+
 
 
 
