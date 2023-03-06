@@ -445,5 +445,10 @@ INFO : org.zerock.controller.BoardController - list: Criteria(pageNum=1, amount=
 - http://localhost:8080/board/list?pageNum=5
 - http://localhost:8080/board/list?pageNum=5&amount=20
 
+### 14.3.1 페이지 번호 이벤트 처리
+- 페이지 번호를 클릭시 정상적으로 이동하는지 확인
+
+
+
 
 
