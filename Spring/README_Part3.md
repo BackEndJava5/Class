@@ -429,5 +429,16 @@ INFO : jdbc.resultsettable -
 |----|-------|--------|
 
 ```
+## 13.2 BoardController와 BoardService 수정
+### 13.2.1 BoardService 수정
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : org.zerock.controller.BoardController - list: Criteria(pageNum=1, amount=10, type=null, keyword=null)
+```
+- http://localhost:8086/board/list?pageNum=1 에서 페이지당 10개씩 출력되는지 확인
+
+
+
+
 
 
