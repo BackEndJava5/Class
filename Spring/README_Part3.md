@@ -394,7 +394,40 @@ from
     )
 where rn > 10;
 ```
+# 13 MyBatis와 스프링에서 페이징 처리
+## 13.1 MyBatis 처리와 테스트
+### 13.1.1 페이징 테스트와 수정
+- MyBatis의 #{}를 적용하기 전에 XML 테스트 실행
+```
+INFO : org.zerock.mapper.BoardMapperTests - BoardVO(bno=88, title=테스트 제목, content=테스트 내용, writer=user00, regdate=Mon Mar 06 18:18:12 KST 2023, updateDate=Mon Mar 06 18:18:12 KST 2023)
+INFO : org.zerock.mapper.BoardMapperTests - BoardVO(bno=87, title=테스트 제목, content=테스트 내용, writer=user00, regdate=Mon Mar 06 18:18:12 KST 2023, updateDate=Mon Mar 06 18:18:12 KST 2023)
+INFO : org.zerock.mapper.BoardMapperTests - BoardVO(bno=86, title=테스트 제목, content=테스트 내용, writer=user00, regdate=Mon Mar 06 18:18:12 KST 2023, updateDate=Mon Mar 06 18:18:12 KST 2023)
+INFO : org.zerock.mapper.BoardMapperTests - BoardVO(bno=85, title=테스트 제목, content=테스트 내용, writer=user00, regdate=Mon Mar 06 18:18:12 KST 2023, updateDate=Mon Mar 06 18:18:12 KST 2023)
+```
+- page 297
+```
+INFO : jdbc.sqlonly - select bno, title, content from ( select /*+INDEX_DESC(tbl_board pk_board) */ rownum rn, bno, 
+title, content from tbl_board where rownum<= 3 * 10 ) where rn > (3-1) * 10 
 
+INFO : jdbc.sqltiming - select bno, title, content from ( select /*+INDEX_DESC(tbl_board pk_board) */ rownum rn, bno, 
+title, content from tbl_board where rownum<= 3 * 10 ) where rn > (3-1) * 10 
+ {executed in 174 msec}
+INFO : jdbc.resultsettable - 
+|----|-------|--------|
+|bno |title  |content |
+|----|-------|--------|
+|86  |테스트 제목 |테스트 내용  |
+|85  |테스트 제목 |테스트 내용  |
+|84  |테스트 제목 |테스트 내용  |
+|83  |테스트 제목 |테스트 내용  |
+|82  |테스트 제목 |테스트 내용  |
+|81  |테스트 제목 |테스트 내용  |
+|80  |테스트 제목 |테스트 내용  |
+|79  |테스트 제목 |테스트 내용  |
+|78  |테스트 제목 |테스트 내용  |
+|77  |테스트 제목 |테스트 내용  |
+|----|-------|--------|
 
+```
 
 
