@@ -462,6 +462,12 @@ http://localhost:8080/board/get?pageNum=2&amount=10&bno=87
 ### 14.5.2 수정/삭제 페이지에서 목록으로 이동
 - 수정/삭제 취소시에 사용자가 보던 페이지로 이동하는지 확인
 
+## 14.6 MyBatis에서 전체 데이터 개수 처리
+```
+INFO : org.zerock.controller.BoardController - list: Criteria(pageNum=1, amount=10, type=null, keyword=null)
+INFO : org.zerock.controller.BoardController - total: 102
+```
+
 
 
 

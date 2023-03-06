@@ -18,4 +18,7 @@ public interface BoardService {
 	// public List<BoardVO> getList();
 	
 	public List<BoardVO> getList(Criteria cri);
+
+	//Ãß°¡ 
+	public int getTotal(Criteria cri);
 }
