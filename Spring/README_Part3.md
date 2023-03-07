@@ -259,7 +259,6 @@ INFO : org.zerock.controller.BoardController - list
 INFO : org.zerock.controller.BoardController - register: BoardVO(bno=null, title=íì¤í¸, content=íì¤í¸, writer=user00, regdate=null, updateDate=null)
 ```
 ### 11.3.1 한글 문제와 UTF-8 필터 처리
-- STS(Spring Tool Suite)에서 한글이 깨지는 이유 https://alnair.tistory.com/18
 - 브라우저와 콘솔로그에서 한글이 정상적으로 처리되는지 확인
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
@@ -468,6 +467,26 @@ http://localhost:8080/board/get?pageNum=2&amount=10&bno=87
 INFO : org.zerock.controller.BoardController - list: Criteria(pageNum=1, amount=10, type=null, keyword=null)
 INFO : org.zerock.controller.BoardController - total: 102
 ```
+# 15 검색 처리
+## 15.4 화면에서 검색 조건 처리
+### 15.4.1 목록 화면에서의 검색 처리
+- BoardMapperTest.java JUNIT TEST
+```
+INFO : jdbc.sqltiming - select bno, title, content, writer, regdate, updatedate from ( select /*+INDEX_DESC(tbl_board 
+pk_board) */ rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where 
+( title like '%'||'키워드'||'%' OR content like '%'||'키워드'||'%' OR writer like '%'||'키워드'||'%' 
+) AND rownum <= 1 * 10 ) where rn > (1 -1) * 10 
+ {executed in 2 msec}
+INFO : jdbc.resultsettable - 
+|----|------|--------|-------|----------------------|----------------------|
+|bno |title |content |writer |regdate               |updatedate            |
+|----|------|--------|-------|----------------------|----------------------|
+|148 |키워드   |키워드     |user00 |2023-03-07 11:10:53.0 |2023-03-07 11:10:53.0 |
+|----|------|--------|-------|----------------------|----------------------|
+```
+- http://localhost:8080/board/list 에서 검색창 추가되었는지, 한글 영문 검색 테스트
+- http://localhost:8086/board/list?type=C&keyword=%ED%82%A4%EC%9B%8C%EB%93%9C&pageNum=1&amount=10 keyword 검색어 파라미터로 잘 전달되는지 확인
+
 
 
 
