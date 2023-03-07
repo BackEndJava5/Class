@@ -66,3 +66,15 @@ This XML file does not appear to have any style information associated with it. 
 ```
 {"mno":0,"firstName":"140.0","lastName":"60.0"}
 ```
+
+### 16.3 @RestController에서 파라미터
+#### 16.3.1 @PathVAriable
+- http://localhost:8080/sample/product/bags/1234
+```
+<Strings>
+<item>category: bags</item>
+<item>productid: 1234</item>
+</Strings>
+```
+
+
