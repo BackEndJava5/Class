@@ -469,7 +469,7 @@ INFO : org.zerock.controller.BoardController - total: 102
 ```
 # 15 검색 처리
 ## 15.4 화면에서 검색 조건 처리
-### 15.4.1 목록 화면에서의 검색 처리
+### 15.4.1 목록 화면에서의 검색 처리(page 341)
 - BoardMapperTest.java JUNIT TEST
 ```
 INFO : jdbc.sqltiming - select bno, title, content, writer, regdate, updatedate from ( select /*+INDEX_DESC(tbl_board 
@@ -486,6 +486,12 @@ INFO : jdbc.resultsettable -
 ```
 - http://localhost:8080/board/list 에서 검색창 추가되었는지, 한글 영문 검색 테스트
 - http://localhost:8086/board/list?type=C&keyword=%ED%82%A4%EC%9B%8C%EB%93%9C&pageNum=1&amount=10 keyword 검색어 파라미터로 잘 전달되는지 확인
+
+- 검색버튼의 이벤트 처리(page 345)
+- 검색조건없이(--선택) 키워드 입력했을 때 : '검색종류를 선택하세요' 팝업 확인
+- 검색조건 선택하고 키워드 입력하지 않았을 때 : '키워드를 입력하세요' 팝업 확인
+- 검색 결과가 여러페이지인 키워드로 검색했을 때 페이지를 이동해도 검색 조건과 키워드가 유지되는지 확인
+
 
 
 
