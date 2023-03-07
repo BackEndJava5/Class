@@ -42,7 +42,22 @@ This XML file does not appear to have any style information associated with it. 
 ```
 {"mno":112,"firstName":"스타","lastName":"로드"}
 ```
-- http://localhost:8088/sample/getSample2.json
+- http://localhost:8080/sample/getSample2.json
 ```
 {"mno":113,"firstName":"로켓","lastName":"라쿤"}
+```
+#### 16.2.3 컬렉션 타입의 객체 반환
+- http://localhost:8080/sample/getMap
+```
+<Map>
+<First>
+<mno>111</mno>
+<firstName>그루트</firstName>
+<lastName>주니어</lastName>
+</First>
+</Map>
+```
+- http://localhost:8080/sample/getMap.json
+```
+{"First":{"mno":111,"firstName":"그루트","lastName":"주니어"}}
 ```
