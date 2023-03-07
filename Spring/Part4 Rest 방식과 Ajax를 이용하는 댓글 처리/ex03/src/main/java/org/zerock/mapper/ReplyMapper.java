@@ -5,4 +5,5 @@ public interface ReplyMapper {
 
 	public int insert(ReplyVO vo);
 
+	public ReplyVO read(Long bno);
 }

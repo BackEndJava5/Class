@@ -133,6 +133,7 @@ INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 ```
 #### 17.2.3 CRUD 작업
+#### 등록 create
 - ReplyMapperTests.java JUNIT test 실행후 10개의 레코드가 생성되는지 확인
 ```
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
@@ -156,7 +157,21 @@ INFO : jdbc.sqltiming - insert into tbl_reply (rno, bno, reply, replyer) values 
 INFO : org.zerock.mapper.ReplyMapperTests - org.apache.ibatis.binding.MapperProxy@29ebbdf4
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 ```
-- sqldeveloper에서 10개의 레코드가 생성되었는지 확인
+- sqldeveloper에서 아래의 명령어 실행시 10개의 레코드가 생성되었는지 확인
 ```
 select * from tbl_reply order by rno desc; 
+```
+#### 조회(read)
+- 5번 댓글이 정상적으로 조회되는지 확인
+```
+INFO : jdbc.sqltiming - select * from tbl_reply where rno = 5 
+ {executed in 223 msec}
+INFO : jdbc.resultsettable - 
+|----|----|---------|---------|----------------------|----------------------|
+|rno |bno |reply    |replyer  |replydate             |updatedate            |
+|----|----|---------|---------|----------------------|----------------------|
+|5   |11  |댓글 테스트 1 |replyer1 |2023-03-07 17:21:15.0 |2023-03-07 17:21:15.0 |
+|----|----|---------|---------|----------------------|----------------------|
+
+INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=5, bno=11, reply=댓글 테스트 1, replyer=replyer1, replyDate=Tue Mar 07 17:21:15 KST 2023, updateDate=Tue Mar 07 17:21:15 KST 2023)
 ```
