@@ -61,3 +61,8 @@ This XML file does not appear to have any style information associated with it. 
 ```
 {"First":{"mno":111,"firstName":"그루트","lastName":"주니어"}}
 ```
+#### 16.2.4 ResponseEntity 타입
+- http://localhost:8080/sample/check.json?height=140&weight=60
+```
+{"mno":0,"firstName":"140.0","lastName":"60.0"}
+```
