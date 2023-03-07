@@ -11,4 +11,38 @@
 ```
 안녕하세요
 ```
-
+- 개발자 도구 > 네트워크
+```
+응답헤더
+    Connection: keep-alive
+    Content-Length: 15
+    Content-Type: text/plain;charset=UTF-8
+    Date: Tue, 07 Mar 2023 05:35:00 GMT
+    Keep-Alive: timeout=20
+```
+#### 16.2.2 객체의 반환
+- http://localhost:8080/sample/getSample
+```
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<SampleVO>
+<mno>112</mno>
+<firstName>스타</firstName>
+<lastName>로드</lastName>
+</SampleVO>
+```
+```
+응답헤더
+    Connection: keep-alive
+    Content-Type: application/xml;charset=UTF-8
+    Date: Tue, 07 Mar 2023 05:40:58 GMT
+    Keep-Alive: timeout=20
+    Transfer-Encoding: chunked
+```
+- http://localhost:8080/sample/getSample.json
+```
+{"mno":112,"firstName":"스타","lastName":"로드"}
+```
+- http://localhost:8088/sample/getSample2.json
+```
+{"mno":113,"firstName":"로켓","lastName":"라쿤"}
+```
