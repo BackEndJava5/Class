@@ -132,3 +132,31 @@ INFO : org.zerock.mapper.ReplyMapperTests - org.apache.ibatis.binding.MapperProx
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 ```
+#### 17.2.3 CRUD 작업
+- ReplyMapperTests.java JUNIT test 실행후 10개의 레코드가 생성되는지 확인
+```
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : jdbc.sqlonly - insert into tbl_reply (rno, bno, reply, replyer) values (seq_reply.nextval, 11, '댓글 테스트 1', 
+'replyer1') 
+
+INFO : jdbc.sqltiming - insert into tbl_reply (rno, bno, reply, replyer) values (seq_reply.nextval, 11, '댓글 테스트 1', 
+'replyer1') 
+
+...
+
+INFO : jdbc.sqltiming - insert into tbl_reply (rno, bno, reply, replyer) values (seq_reply.nextval, 14, '댓글 테스트 9', 
+'replyer9') 
+ {executed in 2 msec}
+INFO : jdbc.sqlonly - insert into tbl_reply (rno, bno, reply, replyer) values (seq_reply.nextval, 10, '댓글 테스트 10', 
+'replyer10') 
+
+INFO : jdbc.sqltiming - insert into tbl_reply (rno, bno, reply, replyer) values (seq_reply.nextval, 10, '댓글 테스트 10', 
+'replyer10') 
+ {executed in 8 msec}
+INFO : org.zerock.mapper.ReplyMapperTests - org.apache.ibatis.binding.MapperProxy@29ebbdf4
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+```
+- sqldeveloper에서 10개의 레코드가 생성되었는지 확인
+```
+select * from tbl_reply order by rno desc; 
+```

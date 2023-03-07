@@ -5,5 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="org.zerock.mapper.ReplyMapper">
 
+<insert id="insert">
+	insert into tbl_reply (rno, bno, reply, replyer)
+	values (seq_reply.nextval, #{bno}, #{reply}, #{replyer})
+</insert>
 
 </mapper>
