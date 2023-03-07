@@ -259,6 +259,7 @@ INFO : org.zerock.controller.BoardController - list
 INFO : org.zerock.controller.BoardController - register: BoardVO(bno=null, title=íì¤í¸, content=íì¤í¸, writer=user00, regdate=null, updateDate=null)
 ```
 ### 11.3.1 한글 문제와 UTF-8 필터 처리
+- STS(Spring Tool Suite)에서 한글이 깨지는 이유 https://alnair.tistory.com/18
 - 브라우저와 콘솔로그에서 한글이 정상적으로 처리되는지 확인
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
