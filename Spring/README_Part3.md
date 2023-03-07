@@ -518,6 +518,7 @@ INFO : jdbc.resultsettable -
         list.forEach(board -> log.info(board));
       }
 ```
+```
 INFO : jdbc.sqltiming - select bno, title, content, writer, regdate, updatedate from ( select /*+INDEX_DESC(tbl_board 
 pk_board) */ rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where 
 ( title like '%'||'Test'||'%' OR content like '%'||'Test'||'%' ) AND rownum <= 1 * 10 ) where 
