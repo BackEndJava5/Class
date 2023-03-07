@@ -102,8 +102,33 @@ INFO : org.zerock.controller.SampleController - convert.......ticketTicket(tno=1
             <artifactId>ojdbc8</artifactId>
             <version>19.3.0.0</version>
         </dependency>
-```
+
 - tomcat 서버 실행시 웰컴 메세지로 정상동작 확인
 ```
 INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+```
+### 17.2 댓글 처리를 위한 영속 영역
+```
+create table tbl_reply (
+    rno number(10, 0),
+    bno number(10, 0) not null,
+    reply varchar2(1000) not null,
+    replyer varchar2(50) not null,
+    replyDate date default sysdate,
+    updateDate date default sysdate
+);
+
+create sequence seq_reply;
+
+alter table tbl_reply add constraint pk_reply primary key(rno);
+
+alter table tbl_reply add constraint fk_reply_board
+foreign key (bno) references tbl_board(bno);
+```
+#### 17.2.1 ReplyVO 클래스의 추가 ( page 381 )
+```
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : org.zerock.mapper.ReplyMapperTests - org.apache.ibatis.binding.MapperProxy@7ff8a9dc
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 ```
