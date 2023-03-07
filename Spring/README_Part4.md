@@ -82,5 +82,28 @@ INFO : org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkSer
 INFO : org.zerock.controller.SampleControllerTests - {"tno":123,"owner":"Admin","grade":"AAA"}
 INFO : org.zerock.controller.SampleController - convert.......ticketTicket(tno=123, owner=Admin, grade=AAA)
 ```
-
-
+## 17 Ajax 댓글 처리
+### 17.1 프로젝트의 구성
+- Spring boot에서 log4jdbc.sql.jdbcapi.DriverSpy 드라이버를 이용한 DB 설정시 아래와 같은 에러가 발생함 https://momobob.tistory.com/23
+- pom.xml
+- ojdbc6.jar 사용자
+```
+<dependency>
+   <groupId>com.oracle.database.jdbc</groupId>
+   <artifactId>ojdbc6</artifactId>
+   <version>11.2.0.4</version>
+</dependency>
+- ojdbc9.jar 사용자
+- https://mvnrepository.com/artifact/com.oracle.ojdbc/ojdbc8/19.3.0.0
+```
+        <!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/ojdbc8 -->
+        <dependency>
+            <groupId>com.oracle.ojdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>19.3.0.0</version>
+        </dependency>
+```
+- tomcat 서버 실행시 웰컴 메세지로 정상동작 확인
+```
+INFO : org.zerock.controller.HomeController - Welcome home! The client locale is ko_KR.
+```
