@@ -485,15 +485,18 @@ INFO : jdbc.resultsettable -
 |----|------|--------|-------|----------------------|----------------------|
 ```
 - http://localhost:8080/board/list 에서 검색창 추가되었는지, 한글 영문 검색 테스트
-- http://localhost:8086/board/list?type=C&keyword=%ED%82%A4%EC%9B%8C%EB%93%9C&pageNum=1&amount=10 keyword 검색어 파라미터로 잘 전달되는지 확인
+- http://localhost:8080/board/list?type=C&keyword=%ED%82%A4%EC%9B%8C%EB%93%9C&pageNum=1&amount=10 keyword(검색어)가 파라미터로 잘 전달되는지 확인
 
-- 검색버튼의 이벤트 처리(page 345)
+### 검색버튼의 이벤트 처리(page 345)
 - 검색조건없이(--선택) 키워드 입력했을 때 : '검색종류를 선택하세요' 팝업 확인
 - 검색조건 선택하고 키워드 입력하지 않았을 때 : '키워드를 입력하세요' 팝업 확인
 - 검색 결과가 여러페이지인 키워드로 검색했을 때 페이지를 이동해도 검색 조건과 키워드가 유지되는지 확인
 
+### 15.4.2 조회 페이지에서 검색 처리
+### 15.4.3 수정/삭제 페이지에서 검색 처리( page 348 )
 
-
+- 검색어(Test)로 검색한 상태에서 특정 페이지의 게시물을 수정하고 난 이후에도 검색 조건은 유지한 채 목록 페이지로 이동하는 지 확인(파라미터 keyword=Test가 계속 유지되는지 확인)
+- http://localhost:8080/board/list?type=T&keyword=Test&pageNum=1&amount=10
 
 
 
