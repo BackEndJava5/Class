@@ -498,10 +498,35 @@ INFO : jdbc.resultsettable -
 - 검색어(Test)로 검색한 상태에서 특정 페이지의 게시물을 수정하고 난 이후에도 검색 조건은 유지한 채 목록 페이지로 이동하는 지 확인(파라미터 keyword=Test가 계속 유지되는지 확인)
 - http://localhost:8080/board/list?type=T&keyword=Test&pageNum=1&amount=10
 
+### UriComponentsBuilder를 이용하는 링크 생성( page 349 )
 
+- http://localhost:8086/board/list?type=T&keyword=Test&pageNum=1&amount=10 
 
+- BoardMapperTests.java
+```
+      @Test
+      public void testLink() {
 
+        Criteria cri = new Criteria();
+        cri.setPageNum(1);
+        cri.setAmount(10);
+        cri.setKeyword("Test");
+        cri.setType("TC");
 
+        List<BoardVO> list = mapper.getListWithPaging(cri);
 
-
-
+        list.forEach(board -> log.info(board));
+      }
+```
+INFO : jdbc.sqltiming - select bno, title, content, writer, regdate, updatedate from ( select /*+INDEX_DESC(tbl_board 
+pk_board) */ rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where 
+( title like '%'||'Test'||'%' OR content like '%'||'Test'||'%' ) AND rownum <= 1 * 10 ) where 
+rn > (1 -1) * 10 
+ {executed in 292 msec}
+INFO : jdbc.resultsettable - 
+|----|------------|--------|-------|----------------------|----------------------|
+|bno |title       |content |writer |regdate               |updatedate            |
+|----|------------|--------|-------|----------------------|----------------------|
+|149 |Test 수정수정수정 |Test    |user00 |2023-03-07 12:39:19.0 |2023-03-07 12:56:03.0 |
+|----|------------|--------|-------|----------------------|----------------------|
+```
