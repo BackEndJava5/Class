@@ -183,4 +183,25 @@ INFO : jdbc.sqlonly - delete from tbl_reply where rno=5
 INFO : jdbc.sqltiming - delete from tbl_reply where rno=5 
  {executed in 24 msec}
  ```
- 
+### 수정(update)
+```
+INFO : jdbc.sqlonly - select * from tbl_reply where rno = 2 
+
+INFO : jdbc.sqltiming - select * from tbl_reply where rno = 2 
+ {executed in 204 msec}
+INFO : jdbc.resultsettable - 
+|----|----|--------------|---------|----------------------|----------------------|
+|rno |bno |reply         |replyer  |replydate             |updatedate            |
+|----|----|--------------|---------|----------------------|----------------------|
+|2   |12  |Update Reply  |replyer2 |2023-03-07 17:21:15.0 |2023-03-08 10:09:11.0 |
+|----|----|--------------|---------|----------------------|----------------------|
+
+INFO : jdbc.sqlonly - update tbl_reply set reply = 'Update Reply ',updatedate = sysdate where rno = 2 
+
+INFO : jdbc.sqltiming - update tbl_reply set reply = 'Update Reply ',updatedate = sysdate where rno = 2 
+ {executed in 2 msec}
+INFO : org.zerock.mapper.ReplyMapperTests - UPDATE COUNT: 1
+```
+
+
+
