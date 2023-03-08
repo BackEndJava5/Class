@@ -175,3 +175,12 @@ INFO : jdbc.resultsettable -
 
 INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=5, bno=11, reply=댓글 테스트 1, replyer=replyer1, replyDate=Tue Mar 07 17:21:15 KST 2023, updateDate=Tue Mar 07 17:21:15 KST 2023)
 ```
+#### 삭제(delete)
+```
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : jdbc.sqlonly - delete from tbl_reply where rno=5 
+
+INFO : jdbc.sqltiming - delete from tbl_reply where rno=5 
+ {executed in 24 msec}
+ ```
+ 
