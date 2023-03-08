@@ -202,6 +202,25 @@ INFO : jdbc.sqltiming - update tbl_reply set reply = 'Update Reply ',updatedate 
  {executed in 2 msec}
 INFO : org.zerock.mapper.ReplyMapperTests - UPDATE COUNT: 1
 ```
+#### 17.2.4 @Param 어노테이션과 댓글 목록
+### 17.3 서비스 영역과 Controller 처리
+#### 17.3.1 ReplyController의 설계
+#### 17.3.2 등록 작업과 테스트
+
+- 크롬 확장 프로그램으로 REST API 테스트 하기
+- 무료 REST(HTTP) API TESTER - Talend API Tester (크롬 확장 프로그램) 설치  https://heeeju4lov.tistory.com/9
+- Talend API Tester 실행후 아래와 같이 입력
+```
+ Method : POST
+ Scheme : https://localhost:8080/replies/new
+ Headers : Content-Type  :  application/json
+ * 게시물의 번호는 기존에 존재하는 번호여야 하므로 sqldevopler에서 미리 확인한다.
+ Body : {"bno":3145745, "replay":"Hello Reply","replyer":"user00"}
+ ```
+- 아래 HTTP Tab 확인
+
+
+
 
 
 
