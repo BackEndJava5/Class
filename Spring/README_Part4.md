@@ -212,7 +212,7 @@ INFO : org.zerock.mapper.ReplyMapperTests - UPDATE COUNT: 1
 - Talend API Tester 실행후 아래와 같이 입력
 ```
  Method : POST
- Scheme : http://localhost:8080/replies/new
+ URL : http://localhost:8080/replies/new
  Headers : Content-Type  :  application/json
  Body : {"bno":3145745, "reply":"Hello Reply","replyer":"user00"}
  ```
@@ -220,12 +220,22 @@ INFO : org.zerock.mapper.ReplyMapperTests - UPDATE COUNT: 1
 
 #### 17.3.3 특정 게시물의 댓글 목록 확인
 ```
-http://localhost:8090/replies/pages/{bno}/{page}
-http://localhost:8090/replies/pages/15/1
+http://localhost:8080/replies/pages/{bno}/{page}
+http://localhost:8080/replies/pages/15/1
 ```
-
-
-
+#### 17.3.4 댓글 삭제/조회
+#### 17.3.5 댓글 수정
+```
+URL :
+http://localhost:8080/replies/{rno}
+http://localhost:8080/replies/2
+Body : {"bno":12, "reply":"댓글을 수정합니다.","replyer":"user00"}
+```
+```
+INFO : org.zerock.controller.ReplyController - rno: 2
+INFO : org.zerock.controller.ReplyController - modify: ReplyVO(rno=2, bno=12, reply=댓글을 수정합니다., replyer=user00, replyDate=null, updateDate=null)
+```
+### 17.4 JavaSCript 준비
 
 
 
