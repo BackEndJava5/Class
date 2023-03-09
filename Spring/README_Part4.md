@@ -212,12 +212,11 @@ INFO : org.zerock.mapper.ReplyMapperTests - UPDATE COUNT: 1
 - Talend API Tester 실행후 아래와 같이 입력
 ```
  Method : POST
- Scheme : https://localhost:8080/replies/new
+ Scheme : http://localhost:8080/replies/new
  Headers : Content-Type  :  application/json
- * 게시물의 번호는 기존에 존재하는 번호여야 하므로 sqldevopler에서 미리 확인한다.
- Body : {"bno":3145745, "replay":"Hello Reply","replyer":"user00"}
+ Body : {"bno":3145745, "reply":"Hello Reply","replyer":"user00"}
  ```
-- 아래 HTTP Tab 확인
+- sqldeveloper에서 확인
 
 
 
