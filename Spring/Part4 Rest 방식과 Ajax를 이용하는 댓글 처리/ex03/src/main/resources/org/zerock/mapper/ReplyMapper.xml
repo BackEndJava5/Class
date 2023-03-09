@@ -17,14 +17,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
+
 	<delete id="delete">
-		delete from tbl_reply where rno=#{rno}
+
+		delete from tbl_reply where rno = #{rno}
+
 	</delete>
 
 	<update id="update">
 
-		update tbl_reply set reply = #{reply},updatedate =
-		sysdate
+		update tbl_reply set reply = #{reply},updatedate = sysdate 
 		where rno = #{rno}
 
 	</update>

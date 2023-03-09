@@ -218,6 +218,12 @@ INFO : org.zerock.mapper.ReplyMapperTests - UPDATE COUNT: 1
  ```
 - sqldeveloper에서 확인
 
+#### 17.3.3 특정 게시물의 댓글 목록 확인
+```
+http://localhost:8090/replies/pages/{bno}/{page}
+http://localhost:8090/replies/pages/15/1
+```
+
 
 
 
