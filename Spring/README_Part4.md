@@ -241,5 +241,3 @@ INFO : org.zerock.controller.ReplyController - modify: ReplyVO(rno=2, bno=12, re
 http://localhost:8080/board/get?bno=12
 ```
 - 개발자 도구에서 reply.js 로딩되고 console 에서 Reply Module........ 출력되는지 확인
-
-
