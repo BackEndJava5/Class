@@ -64,9 +64,17 @@
 
 <div class="col-lg-12">
 	<div class="panel panel-default">
-		<div class="panel-heading">
+		<!-- 		<div class="panel-heading">
 			<i claass="fa fa-comments fa-fw"></i> Reply
+		</div> -->
+
+		<div class="panel-heading">
+			<i class="fa fa-comments fa-fw"></i> Reply
+			<button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
 		</div>
+		<!-- /.panel-heading -->
+
+
 		<!-- /.panel-heading -->
 		<div class="panel-body">
 			<ul class="chat">
