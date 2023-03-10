@@ -590,4 +590,5 @@ INFO : org.zerock.controller.ReplyController - cri:Criteria(pageNum=1, amount=10
 ```
 ### 17.7 댓글 페이지의 화면 처리
 #### 17.7.1 댓글 페이지 계산과 출력
+- 댓글 목록 밑에 페이징 처리가 되는지 확인한다.
 
