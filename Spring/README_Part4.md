@@ -315,3 +315,32 @@ get?pageNum=11&amount=10&type=&keyword=&bno=12:454 {rno: 32, bno: 12, reply: '�
 get?pageNum=11&amount=10&type=&keyword=&bno=12:454 {rno: 37, bno: 12, reply: '댓글 테스트 7', replyer: 'replyer7', replyDate: 1678178614000, …}
 ...
 ```
+#### 17.4.4 댓글 삭제와 갱신
+- rno 23 번 존재 확인 후 삭제테스트
+```
+RNO BNO
+34  23  댓글 테스트 4    replyer4    23/03/07    23/03/07
+```
+```
+* 소스에서 rno 넘버
+replyService.remove(34, function(count) { }
+```
+- * 실행시 bno 넘버
+- http://localhost:8090/board/get?pageNum=1&amount=10&type=&keyword=&bno=23
+```
+브라우저에서 "REMOVED" 모달 확인
+
+개발자 도구 콘솔
+Reply Module...............
+get?pageNum=1&amount=10&type=&keyword=&bno=23:444 ===============
+get?pageNum=1&amount=10&type=&keyword=&bno=23:445 JS TEST
+DevTools failed to load source map: http://localhost:8090/resources/vendor/bootstrap/css/bootstrap.min.css.map 콘텐츠를 로드할 수 없음: HTTP 오류: 상태 코드 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
+get?pageNum=1&amount=10&type=&keyword=&bno=23:474 success
+jquery.min.js:2 [Violation] 'load' handler took 1493ms
+get?pageNum=1&amount=10&type=&keyword=&bno=23:486 {add: ƒ, getList: ƒ, remove: ƒ}
+```
+```
+INFO : org.zerock.controller.BoardController - /get or modify
+INFO : org.zerock.controller.ReplyController - remove: 34
+```
+- sqldeveloper에서 tbl_reply 테이블에서 해당 댓글 삭제되었는지 확인
