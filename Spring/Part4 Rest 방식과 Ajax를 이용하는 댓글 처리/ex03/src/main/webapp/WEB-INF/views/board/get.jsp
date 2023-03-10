@@ -255,6 +255,10 @@
 							var modalModBtn = $("#modalModBtn");
 							var modalRemoveBtn = $("#modalRemoveBtn");
 							var modalRegisterBtn = $("#modalRegisterBtn");
+							$("#modalCloseBtn").on("click", function(e) {
+
+								modal.modal('hide');
+							});
 
 							$("#addReplyBtn").on(
 									"click",
@@ -293,7 +297,7 @@
 								replyService.update(reply, function(result) {
 									alert(result);
 									modal.modal("hide");
-									showList(1);
+									showList(pageNum);
 								});
 							});
 
@@ -302,7 +306,7 @@
 								replyService.remove(rno, function(result) {
 									alert(result);
 									modal.modal("hide");
-									showList(1);
+									showList(pageNum);
 								});
 							});
 							//댓글 조회 클릭 이벤트 처리 
