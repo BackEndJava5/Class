@@ -326,7 +326,7 @@ RNO BNO
 replyService.remove(34, function(count) { }
 ```
 - * 실행시 bno 넘버
-- http://localhost:8090/board/get?pageNum=1&amount=10&type=&keyword=&bno=23
+- http://localhost:8080/board/get?pageNum=1&amount=10&type=&keyword=&bno=23
 ```
 브라우저에서 "REMOVED" 모달 확인
 
@@ -344,3 +344,29 @@ INFO : org.zerock.controller.BoardController - /get or modify
 INFO : org.zerock.controller.ReplyController - remove: 34
 ```
 - sqldeveloper에서 tbl_reply 테이블에서 해당 댓글 삭제되었는지 확인
+
+#### 17.4.5 댓글 수정
+- sqldeveloper에서 rno 69 번 존재 확인
+```
+RNO BNO
+69  14  댓글 테스트 9    replyer9    23/03/09    23/03/09
+```
+```
+* 소스에서 rno 넘버 업데이트
+    replyService.update({
+        rno : 69,
+        bno : bnoValue,
+        reply : "Modified Reply...."
+```
+- * 실행시 bno 넘버
+- http://localhost:8090/board/get?pageNum=1&amount=1&type=&keyword=&bno=14
+- 브라우저에서 "수정 완료..." 모달 확인
+```
+INFO : org.zerock.controller.BoardController - /get or modify
+INFO : org.zerock.controller.ReplyController - rno: 69
+INFO : org.zerock.controller.ReplyController - modify: ReplyVO(rno=69, bno=14, reply=Modified Reply...., replyer=null, replyDate=null, updateDate=null)
+```
+- sqldeveloper에서 reply column 변경되었는지 확인
+```
+69  14  Modified Reply....  replyer9    23/03/09    23/03/10
+```

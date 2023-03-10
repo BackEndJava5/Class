@@ -93,7 +93,7 @@
 	 }); */
 
 	// rno 34, bno 23 번 댓글 삭제 테스트 
-	replyService.remove(34, function(count) {
+	/* replyService.remove(34, function(count) {
 
 		console.log(count);
 
@@ -102,6 +102,15 @@
 		}
 	}, function(err) {
 		alert('ERROR...');
+	}); */
+
+	// rno 69번 댓글 삭제 테스트 
+	replyService.update({
+		rno : 69,
+		bno : bnoValue,
+		reply : "Modified Reply...."
+	}, function(result) {
+		alert("수정 완료...");
 	});
 </script>
 
