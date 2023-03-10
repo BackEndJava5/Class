@@ -1,4 +1,4 @@
-# Part4 Rest 방식과 Ajax를 이용하는 댓글 처리
+# Part4 Rest 방식과 Ajax를 이용하는 댓글 처리(완료)
 ## 16 Rest방식으로 전환
 ### 16.1 @RestController
 #### 16.1.1 예제 프로젝트 준비
