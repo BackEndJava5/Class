@@ -301,7 +301,7 @@ INFO : org.zerock.controller.ReplyController - Reply INSERT COUNT: 1
 ```
 [{"rno":2,"bno":12,"reply":"댓글을 수정합니다.","replyer":"replyer2","replyDate":1678177275000,"updateDate":1678373367000},{"rno":27,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678177275000,"updateDate":1678177275000},{"rno":32,"bno":12,"reply":"댓글 테스트 2","replyer":"replyer2","replyDate":1678178614000,"updateDate":1678178614000},{"rno":37,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678178614000,"updateDate":1678178614000},{"rno":47,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678178653000,"updateDate":1678178653000},{"rno":52,"bno":12,"reply":"댓글 테스트 2","replyer":"replyer2","replyDate":1678346171000,"updateDate":1678346171000},{"rno":57,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678346171000,"updateDate":1678346171000},{"rno":62,"bno":12,"reply":"댓글 테스트 2","replyer":"replyer2","replyDate":1678346229000,"updateDate":1678346229000},{"rno":67,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678346229000,"updateDate":1678346229000}]
 ```
-- page 408
+#### page 408
 - http://localhost:8080/board/get?pageNum=11&amount=10&type=&keyword=&bno=12
 ```
 Reply Module...............
