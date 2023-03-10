@@ -91,13 +91,55 @@
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 
 <script>
+	$(document)
+			.ready(
+					function() {
+						var bnoValue = '<c:out value = "${board.bno}"/>';
+						var replyUL = $(".chat");
+
+						showList(1);
+						function showList(page) {
+							replyService
+									.getList(
+											{
+												bno : bnoValue,
+												page : page || 1
+											},
+											function(list) {
+												var str = "";
+												if (list == null
+														|| list.length == 0) {
+													replyUL.html("");
+
+													return;
+												}
+												for (var i = 0, len = list.length || 0; i < len; i++) {
+													str += "<li class  = 'left clearfix' data-rno = '"+list[i].rno+"'>";
+													str += "	<div><div class = 'header'><strong class = 'primary-font'>"
+															+ list[i].replyer
+															+ "</strong>";
+													str += "		<small class = 'pull-right text-muted'>"
+															+ list[i].replyDate
+															+ "</small></div>";
+													str += "			<p>"
+															+ list[i].reply
+															+ "</p></div></li>";
+												}
+												replyUL.html(str);
+											}); // end function
+						} // end showList
+					});
+</script>
+
+<!-- 
+<script>
 	console.log("===============");
 	console.log("JS TEST");
 
 	var bnoValue = '<c:out value="${board.bno}"/>';
 
 	//for replyService add test
-	/* replyService.add(
+	replyService.add(
 
 	{
 		reply : "JS Test",
@@ -105,21 +147,21 @@
 		bno : bnoValue
 	}, function(result) {
 		alert("RESULT: " + result);
-	}); */
+	});
 
 	//reply List Test
-	/* 	replyService.getList({
-	 bno : bnoValue,
-	 page : 1
-	 }, function(list) {
+	replyService.getList({
+		bno : bnoValue,
+		page : 1
+	}, function(list) {
 
-	 for (var i = 0, len = list.length || 0; i < len; i++) {
-	 console.log(list[i]);
-	 }
-	 }); */
+		for (var i = 0, len = list.length || 0; i < len; i++) {
+			console.log(list[i]);
+		}
+	});
 
 	// rno 34, bno 23 번 댓글 삭제 테스트 
-	/* replyService.remove(34, function(count) {
+	replyService.remove(34, function(count) {
 
 		console.log(count);
 
@@ -128,31 +170,31 @@
 		}
 	}, function(err) {
 		alert('ERROR...');
-	}); */
+	});
 
 	// rno 69번 댓글 삭제 테스트 
-	/* 	replyService.update({
-	 rno : 69,
-	 bno : bnoValue,
-	 reply : "Modified Reply...."
-	 }, function(result) {
-	 alert("수정 완료...");
-	 }); */
+	replyService.update({
+		rno : 69,
+		bno : bnoValue,
+		reply : "Modified Reply...."
+	}, function(result) {
+		alert("수정 완료...");
+	});
 
 	// 댓글 번호 rno를 전달
 	var bnoValue = '<c:out value="${board.bno}"/>';
 	replyService.get(69, function(data) {
 		console.log(data);
 	});
-</script>
+</script> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(document).ready(function() {
 		console.log(replyService);
 	});
-</script>
+</script> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(document).ready(function() {
 
 		var operForm = $("#operForm");
@@ -171,6 +213,6 @@
 
 		});
 	});
-</script>
+</script> -->
 
 <%@include file="../includes/footer.jsp"%>

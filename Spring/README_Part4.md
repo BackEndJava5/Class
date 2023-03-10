@@ -394,3 +394,35 @@ Reply
 user002018-01-01 13:13
 Good job!
 ```
+#### 이벤트 처리
+- 댓글을 여러개 가진 bno(14)를 선택하여 댓글 목록 확인
+```
+69  14  Modified Reply....  replyer9    23/03/09    23/03/10
+29  14  댓글 테스트 9    replyer9    23/03/07    23/03/07
+59  14  댓글 테스트 9    replyer9    23/03/09    23/03/09
+49  14  댓글 테스트 9    replyer9    23/03/07    23/03/07
+24  14  댓글 테스트 4    replyer4    23/03/07    23/03/07
+39  14  댓글 테스트 9    replyer9    23/03/07    23/03/07
+```
+- http://localhost:8080/board/get?pageNum=8&amount=10&type=&keyword=&bno=14
+```
+Reply
+replyer41678177275000
+댓글 테스트 4
+
+replyer91678177275000
+댓글 테스트 9
+
+replyer91678178614000
+댓글 테스트 9
+
+replyer91678178653000
+댓글 테스트 9
+
+replyer91678346171000
+댓글 테스트 9
+
+replyer91678346229000
+Modified Reply....
+```
+
