@@ -258,3 +258,60 @@ INFO : org.zerock.controller.ReplyController - ReplyVO: ReplyVO(rno=null, bno=18
 INFO : org.zerock.controller.ReplyController - Reply INSERT COUNT: 1
 ```
 #### 17.4.3 댓글의 목록 처리
+- http://localhost:8080/replies/pages/12/1
+```
+<List>
+<item>
+<rno>2</rno>
+<bno>12</bno>
+<reply>댓글을 수정합니다.</reply>
+<replyer>replyer2</replyer>
+<replyDate>1678177275000</replyDate>
+<updateDate>1678373367000</updateDate>
+</item>
+<item>
+<rno>27</rno>
+<bno>12</bno>
+<reply>댓글 테스트 7</reply>
+<replyer>replyer7</replyer>
+<replyDate>1678177275000</replyDate>
+<updateDate>1678177275000</updateDate>
+</item>
+<item>
+<rno>32</rno>
+<bno>12</bno>
+<reply>댓글 테스트 2</reply>
+<replyer>replyer2</replyer>
+<replyDate>1678178614000</replyDate>
+<updateDate>1678178614000</updateDate>
+</item>
+<item>
+<rno>37</rno>
+<bno>12</bno>
+<reply>댓글 테스트 7</reply>
+<replyer>replyer7</replyer>
+<replyDate>1678178614000</replyDate>
+<updateDate>1678178614000</updateDate>
+</item>
+<item>
+...
+```
+
+- http://localhost:8080/replies/pages/12/1.json
+```
+[{"rno":2,"bno":12,"reply":"댓글을 수정합니다.","replyer":"replyer2","replyDate":1678177275000,"updateDate":1678373367000},{"rno":27,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678177275000,"updateDate":1678177275000},{"rno":32,"bno":12,"reply":"댓글 테스트 2","replyer":"replyer2","replyDate":1678178614000,"updateDate":1678178614000},{"rno":37,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678178614000,"updateDate":1678178614000},{"rno":47,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678178653000,"updateDate":1678178653000},{"rno":52,"bno":12,"reply":"댓글 테스트 2","replyer":"replyer2","replyDate":1678346171000,"updateDate":1678346171000},{"rno":57,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678346171000,"updateDate":1678346171000},{"rno":62,"bno":12,"reply":"댓글 테스트 2","replyer":"replyer2","replyDate":1678346229000,"updateDate":1678346229000},{"rno":67,"bno":12,"reply":"댓글 테스트 7","replyer":"replyer7","replyDate":1678346229000,"updateDate":1678346229000}]
+```
+- page 408
+- http://localhost:8080/board/get?pageNum=11&amount=10&type=&keyword=&bno=12
+``
+Reply Module...............
+DevTools failed to load source map: http://localhost:8090/resources/vendor/bootstrap/css/bootstrap.min.css.map 콘텐츠를 로드할 수 없음: HTTP 오류: 상태 코드 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
+get?pageNum=11&amount=10&type=&keyword=&bno=12:444 =================
+get?pageNum=11&amount=10&type=&keyword=&bno=12:445 JS TEST
+get?pageNum=11&amount=10&type=&keyword=&bno=12:461 {add: ƒ, getList: ƒ}
+get?pageNum=11&amount=10&type=&keyword=&bno=12:454 {rno: 2, bno: 12, reply: '댓글을 수정합니다.', replyer: 'replyer2', replyDate: 1678177275000, …}
+get?pageNum=11&amount=10&type=&keyword=&bno=12:454 {rno: 27, bno: 12, reply: '댓글 테스트 7', replyer: 'replyer7', replyDate: 1678177275000, …}
+get?pageNum=11&amount=10&type=&keyword=&bno=12:454 {rno: 32, bno: 12, reply: '댓글 테스트 2', replyer: 'replyer2', replyDate: 1678178614000, …}
+get?pageNum=11&amount=10&type=&keyword=&bno=12:454 {rno: 37, bno: 12, reply: '댓글 테스트 7', replyer: 'replyer7', replyDate: 1678178614000, …}
+...
+```
