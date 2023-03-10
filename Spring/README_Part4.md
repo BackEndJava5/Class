@@ -465,5 +465,7 @@ get?pageNum=8&amount=10&type=&keyword=&bno=14:605 39
 get?pageNum=8&amount=10&type=&keyword=&bno=14:605 59
 get?pageNum=8&amount=10&type=&keyword=&bno=14:605 69
 ```
+#### page 426 REPLY MODAL 
+- 댓글 클릭시 REPLY MODAL 팝업창 확인
 
 
