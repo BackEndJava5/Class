@@ -465,7 +465,9 @@ get?pageNum=8&amount=10&type=&keyword=&bno=14:605 39
 get?pageNum=8&amount=10&type=&keyword=&bno=14:605 59
 get?pageNum=8&amount=10&type=&keyword=&bno=14:605 69
 ```
-#### page 426 REPLY MODAL 
+#### REPLY MODAL( page 426 )
 - 댓글 클릭시 REPLY MODAL 팝업창 확인
+#### 17.5.4 댓글의 수정/삭제 이벤트 처리
+- REPLY MODAL 팝업창에서 댓글 수정/삭제 확인
 
 
