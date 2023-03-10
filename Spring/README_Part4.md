@@ -242,6 +242,19 @@ http://localhost:8080/board/get?bno=12
 ```
 - 개발자 도구에서 reply.js 로딩되고 console 에서 Reply Module........ 출력되는지 확인
 #### 모듈 구성하기
+- 이전 캐시가 남아있는 경우 캐시 비우기 및 강력 새로고침후 테스트 https://imweb.me/faq?mode=view&category=29&category2=47&idx=71559
 ```
 http://localhost:8080/board/get?pageNum=1&amount=10&type=&keyword=&bno=168
+```
+#### 17.4.2 reply.js 등록 처리
+```
+Reply Module...............
+get?pageNum=1&amount=10&type=&keyword=&bno=185:444 =================
+get?pageNum=1&amount=10&type=&keyword=&bno=185:445 JS TEST
+reply.js:4 add reply.........
+get?pageNum=1&amount=10&type=&keyword=&bno=185:460 {add: ƒ}
+```
+```
+INFO : org.zerock.controller.ReplyController - ReplyVO: ReplyVO(rno=null, bno=185, reply=JS Test, replyer=tester, replyDate=null, updateDate=null)
+INFO : org.zerock.controller.ReplyController - Reply INSERT COUNT: 1
 ```
