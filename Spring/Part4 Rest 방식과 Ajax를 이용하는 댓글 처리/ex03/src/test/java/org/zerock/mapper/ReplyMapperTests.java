@@ -1,5 +1,6 @@
 package org.zerock.mapper;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.Before;
@@ -8,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.ReplyVO;
 import org.zerock.mapper.ReplyMapper;
 
@@ -50,15 +52,20 @@ public class ReplyMapperTests {
 	 * @Test public void testDelete() { Long targetRno = 5L;
 	 * mapper.delete(targetRno); }
 	 */
+	/*
+	 * @Test public void testUpdate() { Long targetRno = 2L; ReplyVO vo =
+	 * mapper.read(targetRno);
+	 * 
+	 * vo.setReply("Update Reply "); int count = mapper.update(vo);
+	 * 
+	 * log.info("UPDATE COUNT: " + count); }
+	 */
 	@Test
-	public void testUpdate() {
-		Long targetRno = 2L;
-		ReplyVO vo = mapper.read(targetRno);
-
-		vo.setReply("Update Reply ");
-		int count = mapper.update(vo);
-
-		log.info("UPDATE COUNT: " + count);
+	public void testList2() {
+		Criteria cri = new Criteria(1, 5); // page, amount
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, 14L ); // bno 14번 게시물
+		
+		replies.forEach(reply -> log.info(reply));
 	}
 
 }

@@ -470,4 +470,62 @@ get?pageNum=8&amount=10&type=&keyword=&bno=14:605 69
 #### 17.5.4 댓글의 수정/삭제 이벤트 처리
 - REPLY MODAL 팝업창에서 댓글 수정/삭제 확인
 
+### 17.6 댓글의 페이징 처리
+#### 17.6.11 데이터베이스의 인덱스 설계
+- sqldeveloper에서 다음 명령 실행
+```
+create index idx_reply on tbl_reply (bno desc, rno asc);
+```
+#### 17.6.2 인덱스를 이용한 페이징 쿼리
+```
+select /*+INDEX(tbl_reply idx_reply) */
+    rownum rn, bno, rno, reply, replyer, replyDate, updatedate
+    from tbl_reply
+    where bno = 14 --(존재하는 게시물 번호 입력)
+    and rno > 0
+```
+```
+RN  BNO RNO
+1   14  24  댓글 테스트 4    replyer4    23/03/07    23/03/07
+2   14  29  댓글 테스트 9    replyer9    23/03/07    23/03/07
+3   14  39  댓글 테스트 9    replyer9    23/03/07    23/03/07
+4   14  49  댓글 테스트 9    replyer9    23/03/07    23/03/07
+5   14  59  댓글 테스트 9    replyer9    23/03/09    23/03/09
+```
+- ReplyMapperTests.java
+```
+    @Test
+    public void testList2() {
+        Criteria cri = new Criteria(1, 5); // page, amount
+        List<ReplyVO> replies = mapper.getListWithPaging(cri, 14L ); // bno 14번 게시물
+        
+        replies.forEach(reply -> log.info(reply));
+    }
+```
+```
+INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO : jdbc.sqlonly - select rno, bno, reply, replyer, replydate, updatedate from ( select /*+INDEX(tbl_reply idx_reply) 
+*/ rownum rn, rno, bno, reply, replyer, replyDate, updatedate from tbl_reply where bno=14 and 
+rno>0 and rownum <= 1 * 5 ) where rn > (1 -1) * 5 
 
+INFO : jdbc.sqltiming - select rno, bno, reply, replyer, replydate, updatedate from ( select /*+INDEX(tbl_reply idx_reply) 
+*/ rownum rn, rno, bno, reply, replyer, replyDate, updatedate from tbl_reply where bno=14 and 
+rno>0 and rownum <= 1 * 5 ) where rn > (1 -1) * 5 
+ {executed in 228 msec}
+INFO : jdbc.resultsettable - 
+|----|----|---------|---------|----------------------|----------------------|
+|rno |bno |reply    |replyer  |replydate             |updatedate            |
+|----|----|---------|---------|----------------------|----------------------|
+|24  |14  |댓글 테스트 4 |replyer4 |2023-03-07 17:21:15.0 |2023-03-07 17:21:15.0 |
+|29  |14  |댓글 테스트 9 |replyer9 |2023-03-07 17:21:15.0 |2023-03-07 17:21:15.0 |
+|39  |14  |댓글 테스트 9 |replyer9 |2023-03-07 17:43:34.0 |2023-03-07 17:43:34.0 |
+|49  |14  |댓글 테스트 9 |replyer9 |2023-03-07 17:44:13.0 |2023-03-07 17:44:13.0 |
+|59  |14  |댓글 테스트 9 |replyer9 |2023-03-09 16:16:11.0 |2023-03-09 16:16:11.0 |
+|----|----|---------|---------|----------------------|----------------------|
+
+INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=24, bno=14, reply=댓글 테스트 4, replyer=replyer4, replyDate=Tue Mar 07 17:21:15 KST 2023, updateDate=Tue Mar 07 17:21:15 KST 2023)
+INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=29, bno=14, reply=댓글 테스트 9, replyer=replyer9, replyDate=Tue Mar 07 17:21:15 KST 2023, updateDate=Tue Mar 07 17:21:15 KST 2023)
+INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=39, bno=14, reply=댓글 테스트 9, replyer=replyer9, replyDate=Tue Mar 07 17:43:34 KST 2023, updateDate=Tue Mar 07 17:43:34 KST 2023)
+INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=49, bno=14, reply=댓글 테스트 9, replyer=replyer9, replyDate=Tue Mar 07 17:44:13 KST 2023, updateDate=Tue Mar 07 17:44:13 KST 2023)
+INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=59, bno=14, reply=댓글 테스트 9, replyer=replyer9, replyDate=Thu Mar 09 16:16:11 KST 2023, updateDate=Thu Mar 09 16:16:11 KST 2023)
+```
