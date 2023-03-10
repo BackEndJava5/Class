@@ -325,8 +325,7 @@ RNO BNO
 * 소스에서 rno 넘버
 replyService.remove(34, function(count) { }
 ```
-- * 실행시 bno 넘버
-- http://localhost:8080/board/get?pageNum=1&amount=10&type=&keyword=&bno=23
+- 실행시 bno 넘버 http://localhost:8080/board/get?pageNum=1&amount=10&type=&keyword=&bno=23
 ```
 브라우저에서 "REMOVED" 모달 확인
 
@@ -358,8 +357,7 @@ RNO BNO
         bno : bnoValue,
         reply : "Modified Reply...."
 ```
-- * 실행시 bno 넘버
-- http://localhost:8090/board/get?pageNum=1&amount=1&type=&keyword=&bno=14
+- 실행시 bno 넘버 http://localhost:8090/board/get?pageNum=1&amount=1&type=&keyword=&bno=14
 - 브라우저에서 "수정 완료..." 모달 확인
 ```
 INFO : org.zerock.controller.BoardController - /get or modify
@@ -371,3 +369,21 @@ INFO : org.zerock.controller.ReplyController - modify: ReplyVO(rno=69, bno=14, r
 69  14  Modified Reply....  replyer9    23/03/09    23/03/10
 ```
 #### 17.4.6 댓글 조회 처리
+- sqldeveloper에서 rno 69 번 존재 확인
+```
+RNO BNO
+69  14  Modified Reply....  replyer9    23/03/09    23/03/10
+```
+```
+* 소스에서 댓글 번호 rno(69)를 전달
+    var bnoValue = '<c:out value="${board.bno}"/>';
+    replyService.get(69, function(data) {
+        console.log(data);
+    });
+```
+- 실행시 bno 넘버 http://localhost:8090/board/get?pageNum=1&amount=1&type=&keyword=&bno=14
+```
+INFO : org.zerock.controller.BoardController - /get or modify
+INFO : org.zerock.controller.ReplyController - get: 69
+```
+

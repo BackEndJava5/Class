@@ -105,12 +105,18 @@
 	}); */
 
 	// rno 69번 댓글 삭제 테스트 
-	replyService.update({
-		rno : 69,
-		bno : bnoValue,
-		reply : "Modified Reply...."
-	}, function(result) {
-		alert("수정 완료...");
+	/* 	replyService.update({
+	 rno : 69,
+	 bno : bnoValue,
+	 reply : "Modified Reply...."
+	 }, function(result) {
+	 alert("수정 완료...");
+	 }); */
+
+	// 댓글 번호 rno를 전달
+	var bnoValue = '<c:out value="${board.bno}"/>';
+	replyService.get(69, function(data) {
+		console.log(data);
 	});
 </script>
 
