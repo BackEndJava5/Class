@@ -236,6 +236,10 @@ INFO : org.zerock.controller.ReplyController - rno: 2
 INFO : org.zerock.controller.ReplyController - modify: ReplyVO(rno=2, bno=12, reply=댓글을 수정합니다., replyer=user00, replyDate=null, updateDate=null)
 ```
 ### 17.4 JavaSCript 준비
-
+#### 17.4.1 JavaScript의 모듈화
+```
+http://localhost:8080/board/get?bno=12
+```
+- 개발자 도구에서 reply.js 로딩되고 console 에서 Reply Module........ 출력되는지 확인
 
 
