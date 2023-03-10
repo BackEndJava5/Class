@@ -62,6 +62,32 @@
 </div>
 <!-- /.row -->
 
+<div class="col-lg-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<i claass="fa fa-comments fa-fw"></i> Reply
+		</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<ul class="chat">
+				<!-- start reply -->
+				<li class="left clearfix" data-rno='12'>
+					<div>
+						<div class="header">
+							<strong class="primary-font">user00</strong> <small class="pull-right text-muted">2018-01-01 13:13</small>
+						</div>
+						<p>Good job!</p>
+					</div>
+				</li>
+				<!--  end reply -->
+			</ul>
+			<!--  ./end ul -->
+		</div>
+		<!-- ./ end row -->
+	</div>
+</div>
+</div>
+
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 
 <script>

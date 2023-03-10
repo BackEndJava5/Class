@@ -386,4 +386,11 @@ RNO BNO
 INFO : org.zerock.controller.BoardController - /get or modify
 INFO : org.zerock.controller.ReplyController - get: 69
 ```
-
+### 17.5 이벤트 처리와 HTML 처리
+#### 17.5.1 댓글 목록 처리
+- 상세 조회 페이지 브라우저 아래쪽에 댓글의 목록 확인
+```
+Reply
+user002018-01-01 13:13
+Good job!
+```
