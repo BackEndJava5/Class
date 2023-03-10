@@ -195,19 +195,6 @@
 										modalRegisterBtn.show();
 										$(".modal").modal("show");
 									});
-							$("#addReplyBtn").on(
-									"click",
-									function(e) {
-										modal.find("input").val("");
-										modalInputReplyDate.closest("div")
-												.hide();
-										modal.find(
-												"button[id!='modalCloseBtn']")
-												.hide();
-
-										modalRegisterBtn.show();
-										$(".modal").modal("show");
-									});
 
 							modalRegisterBtn.on("click", function(e) {
 								var reply = {
@@ -219,10 +206,18 @@
 									alert(result);
 									modal.find("input").val("");
 									modal.modal("hide");
-									
+
 									showList(1);
 								});
 							});
+							//댓글 조회 클릭 이벤트 처리 
+							$(".chat").on("click", "li", function(e) {
+
+								var rno = $(this).data("rno");
+								console.log(rno);
+
+							});
+
 						});
 	</script>
 

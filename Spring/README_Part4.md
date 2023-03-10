@@ -453,4 +453,17 @@ Modified Reply....
 #### 새로운 댓글의 추가 버튼 이벤트 처리 ( page 421 )
 - New Reply 버튼 클릭 > REPLY MODAL에서 새로운 댓글 추가 -> 댓글 목록에 추가되는지 확인
 
+#### 17.5.3 특정 댓글의 클릭 이벤트 처리
+- 댓글 목록을 하나씩 클릭했을 때 해당 rno 번호가 개발자 도구 콘솔에 출력되는지 확인
+```
+Reply Module...............
+3get?pageNum=8&amount=10&type=&keyword=&bno=14:605 24
+DevTools failed to load source map: http://localhost:8090/resources/vendor/bootstrap/css/bootstrap.min.css.map 콘텐츠를 로드할 수 없음: HTTP 오류: 상태 코드 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
+get?pageNum=8&amount=10&type=&keyword=&bno=14:605 24
+get?pageNum=8&amount=10&type=&keyword=&bno=14:605 29
+get?pageNum=8&amount=10&type=&keyword=&bno=14:605 39
+get?pageNum=8&amount=10&type=&keyword=&bno=14:605 59
+get?pageNum=8&amount=10&type=&keyword=&bno=14:605 69
+```
+
 
