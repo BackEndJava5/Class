@@ -303,7 +303,7 @@ INFO : org.zerock.controller.ReplyController - Reply INSERT COUNT: 1
 ```
 - page 408
 - http://localhost:8080/board/get?pageNum=11&amount=10&type=&keyword=&bno=12
-``
+```
 Reply Module...............
 DevTools failed to load source map: http://localhost:8090/resources/vendor/bootstrap/css/bootstrap.min.css.map 콘텐츠를 로드할 수 없음: HTTP 오류: 상태 코드 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
 get?pageNum=11&amount=10&type=&keyword=&bno=12:444 =================
@@ -370,3 +370,4 @@ INFO : org.zerock.controller.ReplyController - modify: ReplyVO(rno=69, bno=14, r
 ```
 69  14  Modified Reply....  replyer9    23/03/09    23/03/10
 ```
+#### 17.4.6 댓글 조회 처리
