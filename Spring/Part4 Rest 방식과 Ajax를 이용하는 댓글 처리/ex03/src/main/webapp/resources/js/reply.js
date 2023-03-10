@@ -1,5 +1,7 @@
 console.log("Reply Module...............");
-var replyService = (function(){
-	
-	return {name:"AAAA"};
+var replyService = (function() {
+	function add(reply, callback) {
+		console.log("reply.............");
+	}
+	return {add:add};
 })();
