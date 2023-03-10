@@ -1,4 +1,4 @@
-# Part3 기본적인 웹 게시물 관리
+# Part3 기본적인 웹 게시물 관리(완료)
 ## 07 스프링 MVC 프로젝트의 기본 
 #### 7.3.1 pom.xml 의 수정
 - JDBCTests 와 DataSourceTests 동작 확인
