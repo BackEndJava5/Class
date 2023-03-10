@@ -529,3 +529,60 @@ INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=39, bno=14, reply=댓글
 INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=49, bno=14, reply=댓글 테스트 9, replyer=replyer9, replyDate=Tue Mar 07 17:44:13 KST 2023, updateDate=Tue Mar 07 17:44:13 KST 2023)
 INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=59, bno=14, reply=댓글 테스트 9, replyer=replyer9, replyDate=Thu Mar 09 16:16:11 KST 2023, updateDate=Thu Mar 09 16:16:11 KST 2023)
 ```
+#### 17.6.3 댓글의 숫자 파악
+- http://localhost:8080/replies/pages/14/1.json
+- JSONVue 설치 https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc/related?hl=ko 
+```
+// 20230310151252
+// http://localhost:8090/replies/pages/14/1.json
+
+{
+  "replyCnt": 5,
+  "list": [
+    {
+      "rno": 24,
+      "bno": 14,
+      "reply": "댓글 테스트 4",
+      "replyer": "replyer4",
+      "replyDate": 1678177275000,
+      "updateDate": 1678177275000
+    },
+    {
+      "rno": 29,
+      "bno": 14,
+      "reply": "댓글 테스트 9",
+      "replyer": "replyer9",
+      "replyDate": 1678177275000,
+      "updateDate": 1678177275000
+    },
+    {
+      "rno": 39,
+      "bno": 14,
+      "reply": "댓글 테스트 9",
+      "replyer": "replyer9",
+      "replyDate": 1678178614000,
+      "updateDate": 1678178614000
+    },
+    {
+      "rno": 49,
+      "bno": 14,
+      "reply": "댓글 테스트 9",
+      "replyer": "replyer9",
+      "replyDate": 1678178653000,
+      "updateDate": 1678178653000
+    },
+    {
+      "rno": 59,
+      "bno": 14,
+      "reply": "댓글 테스트 9",
+      "replyer": "replyer9",
+      "replyDate": 1678346171000,
+      "updateDate": 1678346171000
+    }
+  ]
+}
+```
+```
+INFO : org.zerock.controller.ReplyController - get Reply List bno: 14
+INFO : org.zerock.controller.ReplyController - cri:Criteria(pageNum=1, amount=10, type=null, keyword=null)
+```
