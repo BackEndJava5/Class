@@ -530,6 +530,8 @@ INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=49, bno=14, reply=댓글
 INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=59, bno=14, reply=댓글 테스트 9, replyer=replyer9, replyDate=Thu Mar 09 16:16:11 KST 2023, updateDate=Thu Mar 09 16:16:11 KST 2023)
 ```
 #### 17.6.3 댓글의 숫자 파악
+#### 17.6.4 ReplyServiceImpl에서 댓글과 댓글 수 처리
+#### 17.6.5 ReplyController 수정
 - http://localhost:8080/replies/pages/14/1.json
 - JSONVue 설치 https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc/related?hl=ko 
 ```
@@ -586,3 +588,6 @@ INFO : org.zerock.mapper.ReplyMapperTests - ReplyVO(rno=59, bno=14, reply=댓글
 INFO : org.zerock.controller.ReplyController - get Reply List bno: 14
 INFO : org.zerock.controller.ReplyController - cri:Criteria(pageNum=1, amount=10, type=null, keyword=null)
 ```
+### 17.7 댓글 페이지의 화면 처리
+#### 17.7.1 댓글 페이지 계산과 출력
+
